@@ -20,33 +20,50 @@ public class Clothes {
     @Override
     public int hashCode() {
         int result = 240;
+        //condition ? iftrue : ifnot
         result += (getSize() != null ? getSize().hashCode() : 0);
         result += (getType() != null ? getType().hashCode() : 0);
         result += getPrice()*result;
         return result;
     }
 
+
+    //write it again again again
     @Override
     public boolean equals(Object obj){
         if(obj == this){//checks if the objects have the same addresses
             return true;
         }
-        if(obj != null && getClass() != obj.getClass()){//checks if the objects are same type of objects
+        if (obj == null || getClass() != obj.getClass()) {
+            //checks if the objects are same type of objects
             return false;
         }
 
         Clothes obj1 = (Clothes) obj;//initializing an object of this type, so we can use get methods
+        if (type == null) {
+            if (obj1.type != null) {
+                return false;
+            }
+        } else if (!type.equals(obj1.type)) {
+            return false;
+        }
 
+        if (size == null) {
+            if (obj1.size != null) {
+                return false;
+            }
+        } else if (!size.equals(obj1.size)) {
+            return false;
+        }
 
-        if(!getType().equals(obj1.getType()) ||
-                !getSize().equals(obj1.getSize()) ||
-                getPrice() != obj1.getPrice())
-        {
+        if (price != obj1.price) {
             return false;
         }
 
         return true;
     }
+
+
 
 
     public void setPrice(int price) {
