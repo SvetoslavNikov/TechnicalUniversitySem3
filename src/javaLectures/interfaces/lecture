@@ -1,0 +1,18 @@
+Why there is no double inheritance in java;
+
+
+class A int x
+class B int x
+class C int x
+class d int x
+
+interface always in a separate file
+//interface example goceva git
+initialize an object of the interface type
+
+inheritance of interface
+
+code is written but we need new features - we dont delete the old one
+ create new interface same name but with index
+
+ default method of interface - means that we dont need to override it in the classes
