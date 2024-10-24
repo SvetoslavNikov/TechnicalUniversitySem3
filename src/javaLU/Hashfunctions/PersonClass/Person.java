@@ -1,28 +1,27 @@
-package javaLU.Hashfunctions.PersonClass;
-
-public class Person {
-    private String name;
+/*public class Person {
+    private Name name;
     private int age;
 
-    // Default constructor (no parameters)
-    public Person() {
-        this.name = "Unknown"; // Set default values
-        this.age = 0;
-    }
-
-    // Constructor with parameters to initialize all variables
-    public Person(String name, int age) {
+    public Person(Name name, int age) {
         this.name = name;
         this.age = age;
     }
 
-    @Override
-    public int hashCode() {
-        return name.hashCode() + age; // Example hashCode implementation
+    // Getters and setters
+    public Name getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-        return "Person{name='" + name + "', age=" + age + "}";
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
+*/

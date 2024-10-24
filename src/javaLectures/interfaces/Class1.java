@@ -1,6 +1,9 @@
 package javaLectures.interfaces;
 
-public class Class1 implements interface1, interface2{
+import javaLU.LU3.exercise.ex1.Person;
+
+public class Class1 extends Person implements interface1, interface2, interface3{
+
 
 
 
@@ -14,6 +17,10 @@ public class Class1 implements interface1, interface2{
         interface1 d = new Class1();//???????????????????
         d.print();
         System.out.println(interface1.min);
+    }
+
+    public static int cube(int x){
+        return 24;
     }
 }
 

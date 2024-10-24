@@ -8,7 +8,23 @@ class d int x
 
 interface always in a separate file
 //interface example goceva git
-initialize an object of the interface type
+//interfaceDEMO
+//interfacesample
+//lambda
+//exceptions Example2/3/4
+example 4 -  we have to write throws after the main OR try catch method if we expect to throw an error
+otherwise it wont compile!!!why is that different
+
+throwable is a special class for exceptions -...
+
+initialize an object of the interface type so we can access the different implementations of the method in different classes
+ Interface1
+    ^
+    |
+ Class1   Class2
+    |       |
+Interface1 a = new Class1();
+
 
 inheritance of interface
 
@@ -16,3 +32,6 @@ code is written but we need new features - we dont delete the old one
  create new interface same name but with index
 
  default method of interface - means that we dont need to override it in the classes
+
+ every new class has a parent class Object
+
