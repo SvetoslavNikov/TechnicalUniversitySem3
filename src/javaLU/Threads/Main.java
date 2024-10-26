@@ -13,7 +13,7 @@ public class Main {
         System.out.println(a.getPriority());
         System.out.println(Thread.activeCount());
         a.start();
-        
+
         //start() Method:
         //Creates a new thread.
         //

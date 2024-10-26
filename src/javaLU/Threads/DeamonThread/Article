@@ -2,6 +2,7 @@
 Daemon thread is low-priority threads, we set a thread to be daemon when
 we want it to terminate anytime it will interfere the main operations
 (the high priority threads)
+A daemon thread will stop as soon as ALL!!!! non-daemon (user) threads have finished.
 
 -----When to Use Daemon Threads---------
 Use them for tasks that should run continuously in the background
