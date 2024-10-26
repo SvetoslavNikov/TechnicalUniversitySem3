@@ -1,4 +1,4 @@
-package javaLU.NestedClassesAndMore.anonymusClass;
+package javaLU.NestedClassesAndMore.anonymousClass;
 
 public class Test {
     public static void main(String[] args) {

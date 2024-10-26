@@ -1,0 +1,41 @@
+Конструктори дефинирани в класа Thread
+
+public Thread();
+public Thread(Runnable target);
+public Thread(String name);
+public Thread(Runnable target, String name)
+
+
+---------Methods---------
+Thread.start() – стартира дадена нишка;
+Thread.sleep(милисекунди) – приспива дадена нишка.
+                            Честo се използва за приоритет на дадени нишки.
+Thread.getName() – връща името на нишката.
+Thread.Id() – връща число, с което се асоциира дадената нишка.
+Thread.getPriority() – връща приоритета на дадената нишка.
+Thread.getState() –връща състоянието на нишката.
+Thread.interrupt() – прекъсва дадената нишка.
+Thread.isAlive() – връща дали дадената нишка е активна.
+Thread.join – чака дадената нишка да приключи.
+
+
+try {
+    Thread.sleep(5000);  // May throw InterruptedException
+} catch (InterruptedException e) {
+    e.printStackTrace();  // Prints the stack trace of the exception
+}
+
+--------Why we have to catch InterruptedException while using Threads?-------------
+InterruptedException == Thread Interrupted:
+While your MaintenanceTask is sleeping (with Thread.sleep(5000)),
+another thread might interrupt it, causing InterruptedException.
+
+Stack Trace: Shows the sequence of method calls leading to the exception.
+Diagnosis: Helps you understand and debug the problem.
+
+Best practice is to catch the InterruptedException
+in the run method of your thread.
+This ensures that the thread itself handles the interruption gracefully and
+ can either clean up or continue based on your logic.
+  Catching it in the main class isn't practical since the main class
+   might not be directly aware of the thread's interruption.

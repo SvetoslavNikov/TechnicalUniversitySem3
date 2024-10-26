@@ -1,0 +1,11 @@
+-----What is a Daemon thread?-----------
+Daemon thread is low-priority threads, we set a thread to be daemon when
+we want it to terminate anytime it will interfere the main operations
+(the high priority threads)
+
+-----When to Use Daemon Threads---------
+Use them for tasks that should run continuously in the background
+and should terminate when the main application finishes.
+
+-----Lifecycle Management---------------
+They provide automatic cleanup and are ideal for housekeeping tasks.
