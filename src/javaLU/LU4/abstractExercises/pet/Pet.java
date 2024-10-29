@@ -7,7 +7,4 @@ public abstract class Pet {
         System.out.println("Pet is sleeping");
     }
 
-    public void sell(){
-        System.out.printf("I sell pet for %d lv", 5);
-    }
 }

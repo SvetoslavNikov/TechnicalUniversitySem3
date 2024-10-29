@@ -4,6 +4,8 @@ public class ExceptionExample {
     public static void main(String[] args)
     {
         try {
+            //System.out.println(1/0);
+
             division(100, 0);
         } catch (ArithmeticException e) {
             System.out.println("You can’t divide by zero!");
