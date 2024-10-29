@@ -8,10 +8,12 @@ public class Test {
         Dog dogy = new Dog();
         dogy.makeSound();
         dogy.sleep();
+        dogy.sell();
 
         Cat caty = new Cat();
         caty.makeSound();
         caty.sleep();
+        caty.sell();
 
         Bird birdy = new Bird();
         birdy.makeSound();

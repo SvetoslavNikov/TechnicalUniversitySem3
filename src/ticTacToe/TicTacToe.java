@@ -34,9 +34,9 @@ public class TicTacToe extends JFrame {
 
     }
 
-    private  ListenerForButtonClick(ActionEvent e, JButton button){
+    /*private  ListenerForButtonClick(ActionEvent e, JButton button){
         JButton clickedButton = (JButton) e.getSorce();
-    }
+    }*/
 
 
     public static void main(String[] args) {
