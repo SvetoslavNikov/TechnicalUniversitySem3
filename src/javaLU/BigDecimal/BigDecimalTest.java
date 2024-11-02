@@ -20,7 +20,12 @@ public class BigDecimalTest {
         } else {
             System.out.println("NOt equal numbers");
         }
+/*double with BigDecimal:
+Risk of slight inaccuracies due to binary floating-point
+approximations, resulting in values like 12.344999999999998523 instead of 12.345.
 
-
+String with BigDecimal:
+Ensures the number is stored exactly as you entered it,
+avoiding any hidden precision errors.*/
     }
 }
