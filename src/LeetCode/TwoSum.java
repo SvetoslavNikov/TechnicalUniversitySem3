@@ -33,6 +33,9 @@ public class TwoSum {
 
         for (int i = 0; i < arr.length; i++) {
             map.put(arr[i],i);
+            //3,2,4
+            //3 - 0
+            //2 -
 
         }
         for (int i = 0; i < arr.length; i++) {

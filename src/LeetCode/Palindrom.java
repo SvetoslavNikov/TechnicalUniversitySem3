@@ -9,23 +9,40 @@ Explanation: 121 reads as 121 from left to right and from right to left.
 Example 2:
 
      */
-    public boolean isPalindrome(int x) {
+
+    //method1 for negative number can be palindrome
+    public static boolean isPalindrome(int x) {
         int reverse = 0;
         int current = x;
-        String xs = String.valueOf(x);
-        int i = (int) Math.pow(10,xs.length());
-
-
+        int num;
         while(true){
-            reverse = (current/i)*i;
-            current = current - i;
-            if(i==1){
-                break;
+            num = current%10;
+            reverse += num;
+            reverse *= 10;
+            current /= 10;
+            if(current < 10 && current >-10) {
+             reverse += current;
+             break;
             }
-            i = i/10;
         }
-
         return reverse == x;
 
+    }
+
+//method2 for negative number can't be palindrome
+    public boolean isPalindrome1(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+        int revertedNumber = 0;
+        while (x > revertedNumber) {
+            revertedNumber = revertedNumber * 10 + x % 10;
+            x /= 10;
+        }
+        return x == revertedNumber || x == revertedNumber / 10;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(-121));
     }
 }
