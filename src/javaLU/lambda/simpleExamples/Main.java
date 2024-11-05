@@ -2,7 +2,7 @@ package javaLU.lambda.simpleExamples;
 
 public class Main {
     public static void main(String[] args) {
-        /*MyInterface a = new MyInterface() {
+        /*MyInterface v = new MyInterface() {
             @Override
             public void sayHi() {
                 System.out.println("Hi there");
