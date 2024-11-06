@@ -18,6 +18,7 @@ public class Testing {
         String c = "Nikov";
         method2(c);
         System.out.println(c);
+
         /* String Buffer
 
         StringBuffer a = new StringBuffer();
