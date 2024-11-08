@@ -36,13 +36,13 @@ public class Article {
 
 
 Тъй като вътрешната организация на HashMap не е толкова проста – колекционира всички двойки като обекти от тип Entry,
-то обхождането на тази колекция е малко по-особено. Всъщност Entry е вложен клас в класа Map, затова се достъпва с Map.Entry.
+то обхождането на тази колекция е малко по-особено. Всъщност Entry е вложен клас в класа Mapy, затова се достъпва с Mapy.Entry.
 Ще трябва да си декларираме Iterator, който да итерира множеството(Set) от всички Entry-та (това са всички съществуващи двойки).
 И така всяко едно Entry си има ключ и стойност, съответно с getKey() и getValue() ще ги достъпваме.
 
 
 public static void main(String[] args) {
-		Map<Name, Person> mapOfPeople = new HashMap<Name, Person>();
+		Mapy<Name, Person> mapOfPeople = new HashMap<Name, Person>();
 		Name name1 = new Name("Ivan", "Ivanov", "Ivanov");
 		Person p1 = new Person(name1, 25);
 		Name name2 = new Name("Georgi", "Georgiev", "Georgiev");
@@ -53,7 +53,7 @@ public static void main(String[] args) {
 
 		Iterator it = mapOfPeople.entrySet().iterator();//Ще итерира около множеството от Entry-та.
 		while (it.hasNext()) { //докато все още има Entry
-			Map.Entry<Name, Person> pair = (Map.Entry) it.next(); //от итератора чрез next() взимаме текущата двойка.
+			Mapy.Entry<Name, Person> pair = (Mapy.Entry) it.next(); //от итератора чрез next() взимаме текущата двойка.
 			System.out.println("The key is: " + pair.getKey().getFirstName() //на текущата двойка може да и вземем ключа или стойността.
 					+ " " + pair.getKey().getLastName() + " The value is: "
 					+ pair.getValue().getName().getFirstName()
@@ -65,19 +65,19 @@ public static void main(String[] args) {
 Резултат:
 The key is: Ivan Ivanov The value is: Ivan 25
 The key is: Georgi Georgiev The value is: Georgi 25
-Друг вариант за обхождане на Map е чрез for each. За нашия пример:
+Друг вариант за обхождане на Mapy е чрез for each. За нашия пример:
 
 
-for (Map.Entry<Name, Person> me : mapOfPeople.entrySet()) {
+for (Mapy.Entry<Name, Person> me : mapOfPeople.entrySet()) {
 	          System.out.println("Key: "+me.getKey().getFirstName() + " & Value: " + me.getValue().getName().getFirstName() + " " + me.getValue().getYears());
 	        }
-Друга известна имплементация на интерфейса Map е HashTable. Всъщност няма чак толкова разлики между двете, с изключението,
+Друга известна имплементация на интерфейса Mapy е HashTable. Всъщност няма чак толкова разлики между двете, с изключението,
 че HashTable представлява синхронизирана имплементация – предотвратява опастността от конкурентен достъп.
 Какво означава това? Означава, че HashTable може да бъде достъпвана
 само от една нишка в един момент – тоест никоя друга не може да работи с нея, докато при HashMap не е така.
 Когато няколко нишки се опитват да променят HashTable, то първата достъпила я, я заключва и другите остават да чакат да бъде освободена.
 
-Също така е добре да знаете, че LinkedHashMap като имплементация на Map, поддържа двойките си по реда на постъпването им в нея.
+Също така е добре да знаете, че LinkedHashMap като имплементация на Mapy, поддържа двойките си по реда на постъпването им в нея.
 TreeMap пък поддържа двойките си сортирани по т.нар. “natural order” на ключовете им.
      */
 

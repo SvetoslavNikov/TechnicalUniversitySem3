@@ -1,27 +1,28 @@
-/*public class Person {
-    private Name name;
-    private int age;
+package javaLU.Hashfunctions.PersonClass;
 
-    public Person(Name name, int age) {
-        this.name = name;
-        this.age = age;
+import java.util.Objects;
+
+public class Person {
+    private String firstName;
+    private String lastName;
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName);
     }
 
-    // Getters and setters
-    public Name getName() {
-        return name;
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
     }
 
-    public void setName(Name name) {
-        this.name = name;
-    }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
-*/
+

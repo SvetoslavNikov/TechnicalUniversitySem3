@@ -20,6 +20,26 @@ public class Test {
         System.out.println(map.get(key1));
         System.out.println(map.isEmpty());
 
+        System.out.println("jeans");
+        Jeans j1 = new Jeans("blue","M",10);
+        Jeans j2 = new Jeans("blue","M",10);
+        Jeans j3 = new Jeans();
+
+        System.out.println(j1.hashCode());
+        System.out.println(j2.hashCode());
+
+        System.out.println(j1.getSize().hashCode());
+        System.out.println(j2.getSize().hashCode());
+        System.out.println(j3.getSize().hashCode());
+        j2 = j1;
+
+        System.out.println(j1.equals(j2));
+        System.out.println(j1.equals(null));
+
+
+
+
+
 
     }
 }

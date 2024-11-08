@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Collections {
-    public static <Set> void main(String[] args) {
+    public static void main(String[] args) {
         List<Integer> ls = new ArrayList<>();
         ArrayList<Integer> arrls = new ArrayList<>();
         arrls.add(1);
@@ -54,6 +54,8 @@ public class Collections {
         for (String s: reverseOrder){
             System.out.println(s);
         }
+
+
 
 
 
