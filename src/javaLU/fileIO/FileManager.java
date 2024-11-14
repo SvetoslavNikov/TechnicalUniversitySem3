@@ -16,6 +16,7 @@ public class FileManager {
             System.out.println("Input file Name:");
             String fileName = scanner.nextLine();
 
+
             if (command.equals("write")) {
                 writeFile(fileName, scanner);
             } else if (command.equals("read")) {
