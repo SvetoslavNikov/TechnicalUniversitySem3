@@ -19,4 +19,5 @@ public class MusicPlaylist implements Serializable {
     public String getPlaylistName(){
         return this.PlaylistName;
     }
+
 }
