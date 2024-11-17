@@ -1,4 +1,4 @@
-package javaLU.IteratorsAndComparators.Iterators.ComplexExample;
+package javaLU.IteratorsAndComparators.Iterators.IteratorInterfaceImplementation;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -11,7 +11,7 @@ public class Library1 implements Iterable<String> {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
         return new LibraryIterator();
         /* -- worse way
         Iterator<String> a = new Iterator<>(){
@@ -33,7 +33,7 @@ public class Library1 implements Iterable<String> {
         return  a;*/
     }
 
-
+//reverse iterator :)
     private class LibraryIterator implements Iterator<String>{
         private int index = titles.length-1;
 

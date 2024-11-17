@@ -1,4 +1,6 @@
-package javaLU.IteratorsAndComparators.Iterators;
+package javaLU.IteratorsAndComparators.Comparators;
+
+
 
 import java.util.ArrayList;
 import java.util.Arrays;

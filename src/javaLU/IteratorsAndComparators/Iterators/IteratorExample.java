@@ -1,4 +1,8 @@
 package javaLU.IteratorsAndComparators.Iterators;
+
+
+import javaLU.IteratorsAndComparators.Comparators.Employee;
+
 import java.util.*;
 
 public class IteratorExample {
