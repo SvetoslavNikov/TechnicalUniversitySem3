@@ -1,0 +1,3 @@
+"Software entities (such as classes, modules, and functions)
+should be open for extension,
+ but closed for modification."
