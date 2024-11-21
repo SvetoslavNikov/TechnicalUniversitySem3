@@ -3,7 +3,7 @@ package JavaOOP.Solid.OpenClosed;
 public class CorrectWay {
     public static void main(String[] args) {
         PaymentMethod ivanPayment = new CreditCardPayment();
-        PaymentMethod paypal = new PayPalPayment();
+        PayPalPayment paypal = new PayPalPayment();
         PaymentProcessor.processPayment(ivanPayment, 2.33);
         PaymentProcessor.processPayment(paypal, 5.35);
     }
