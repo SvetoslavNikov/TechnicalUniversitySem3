@@ -2,7 +2,8 @@ package JavaOOP.Solid.InterfaceSegragationPrinciple;
 
 public class Correct {
     public static void main(String[] args) {
-        MulltiFunctionPrinter a = new MulltiFunctionPrinter();
+        Correct b = new Correct();
+        MulltiFunctionPrinter a = b.new MulltiFunctionPrinter();
         a.fax();
         a.scan();
         a.printMe();
