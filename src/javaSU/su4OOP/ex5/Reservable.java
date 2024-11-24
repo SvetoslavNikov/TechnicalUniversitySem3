@@ -11,9 +11,10 @@ public interface Reservable {
     public void updateAvailabilityFromFile() throws IOException;
 }
 
-public class RoomLoader implements Reservable{
+/*public class RoomLoader implements Reservable{
     @Override
     public void updateAvailabilityFromFile() throws IOException {
         FileReader reader = new FileReader(new File("gosho.txt"));
     }
 }
+*/
