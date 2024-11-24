@@ -28,6 +28,7 @@ public class Cat{
         this.age = age;
     }
 
+    @RunThisMethod(times = 3)
     private static void IamPrivateStaticMethod(String hi){
         System.out.println("Hey how did you make me write this:\n"+ hi);
     }
