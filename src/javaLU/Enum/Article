@@ -1,0 +1,5 @@
+An enum (short for "enumeration") is a special data type
+used to define a fixed set of constants.
+
+It improves code readability, type safety,
+and makes the program easier to maintain.
