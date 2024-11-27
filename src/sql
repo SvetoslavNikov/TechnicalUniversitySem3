@@ -1,0 +1,188 @@
+-- Create Employees Table
+/*
+CREATE TABLE employees (
+    employee_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    salary DECIMAL(9,2),
+    hire_date DATE
+);
+*/
+
+-- Modify Table/Columns Examples
+-- ALTER TABLE employees
+--     ADD phone_number VARCHAR(15);
+-- ALTER TABLE employees
+--     RENAME COLUMN phone_number TO email;
+-- ALTER TABLE employees
+--     MODIFY COLUMN email VARCHAR(100);
+-- ALTER TABLE employees
+--     MODIFY email VARCHAR(100) AFTER last_name;
+-- ALTER TABLE employees
+--     MODIFY email VARCHAR(100) FIRST;
+-- ALTER TABLE employees
+--     DROP COLUMN email;
+-- ALTER TABLE employees
+--     RENAME COLUMN salary TO hourly_pay;
+
+-- Insertion Examples
+-- INSERT INTO employees
+-- VALUES
+--     (1, "Eugene", "Crabs", 25.5, "2024-01-09"),
+--     (2, "Squidward", "Tentacles", 15.00, "2024-02-27"),
+--     (3, "Spongebob", "Squarepants", 20.00, "2024-03-18");
+
+-- Partial Insertion
+-- INSERT INTO employees (employee_id, first_name)
+-- VALUES (4, "Plankton");
+
+-- Selection Examples
+-- SELECT hire_date, first_name, last_name FROM employees;
+-- SELECT * FROM employees WHERE employee_id = 1;
+-- SELECT * FROM employees WHERE hourly_pay > 15;
+-- SELECT * FROM employees WHERE hire_date > "2024-02-01";
+-- SELECT * FROM employees WHERE employee_id != 1;
+-- SELECT * FROM employees WHERE hire_date IS NULL;
+
+-- Deletion Examples
+-- DELETE FROM employees; -- Deletes every row
+-- DELETE FROM employees WHERE employee_id = 1;
+
+-- Update Examples
+-- UPDATE employees
+-- SET
+--     hourly_pay = 10.25,
+--     hire_date = "2024-06-22"
+-- WHERE employee_id = 4;
+-- UPDATE employees
+-- SET hire_date = NULL
+-- WHERE employee_id = 4;
+
+-- Transaction Management
+-- SET autocommit = OFF; -- Transaction doesn't auto-save
+-- COMMIT; -- Set checkpoint
+-- DELETE FROM employees;
+-- ROLLBACK; -- Revert to last checkpoint
+-- SET autocommit = ON;
+
+-- Date and Time Table
+/*
+CREATE TABLE test (
+    my_date DATE,
+    my_time TIME,
+    my_datetime DATETIME
+);
+
+INSERT INTO test
+VALUES (
+    CURRENT_DATE() + 1,
+    CURRENT_TIME(),
+    NOW()
+);
+SELECT * FROM test;
+DROP TABLE test;
+*/
+
+-- Unique Constraint Example
+/*
+CREATE TABLE products (
+    product_id INT,
+    product_name VARCHAR(25) UNIQUE,
+    price DECIMAL(4,2)
+);
+
+ALTER TABLE products
+ADD CONSTRAINT
+UNIQUE(product_name);
+
+INSERT INTO products
+VALUES
+    (1, "hamburger", 3.99),
+    (2, "fries", 1.99),
+    (3, "soda", 0.99);
+*/
+
+-- Not Null Constraint Example
+/*
+CREATE TABLE products (
+    product_id INT NOT NULL,
+    product_name VARCHAR(25) UNIQUE,
+    price DECIMAL(4,2)
+);
+
+ALTER TABLE products
+MODIFY price DECIMAL(4,2) NOT NULL;
+*/
+
+-- Check Constraint Example
+/*
+CREATE TABLE employees (
+    employee_id INT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    salary DECIMAL(9,2),
+    hire_date DATE,
+    CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00)
+);
+
+ALTER TABLE employees
+ADD CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00);
+*/
+
+-- Default Constraint Example
+/*
+CREATE TABLE products (
+    product_id INT NOT NULL,
+    product_name VARCHAR(25) UNIQUE,
+    price DECIMAL(4,2) DEFAULT 0
+);
+
+ALTER TABLE products
+ALTER price SET DEFAULT 0;
+
+INSERT INTO products (product_id, product_name)
+VALUES (104, "straw");
+*/
+
+-- Transaction Table with Default Datetime
+/*
+CREATE TABLE transaction (
+    transaction_id INT,
+    amount DECIMAL(5,2),
+    transaction_date DATETIME DEFAULT NOW()
+);
+
+INSERT INTO transaction (transaction_id, amount)
+VALUES (1, 4.99);
+*/
+
+-- Primary Key Example
+/*
+CREATE TABLE transaction (
+    transaction_id INT PRIMARY KEY,
+    amount DECIMAL(5,2),
+    transaction_date DATETIME DEFAULT NOW()
+);
+ALTER TABLE transaction
+ADD CONSTRAINT
+PRIMARY KEY (transaction_id);
+*/
+-- ----------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

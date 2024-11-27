@@ -15,7 +15,7 @@ public class JDBCExample {
 
         String query = "SELECT id, name, email FROM users WHERE status = ?";
 
-   
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
