@@ -1,0 +1,92 @@
+What is Hibernate?
+Hibernate is an open-source Object-Relational Mapping (ORM) framework for Java. 
+It simplifies the interaction between Java applications and relational databases by mapping Java objects to database tables.
+ Hibernate abstracts the complexities of JDBC (Java Database Connectivity) and eliminates the need for most SQL, allowing developers to work with 
+ Java objects instead of directly dealing with database queries.
+
+Basic Use in Java
+Hibernate is used to:
+
+Persist Java objects into a relational database (store data).
+Fetch data from the database and populate Java objects.
+Perform CRUD operations (Create, Read, Update, Delete) using object-oriented code.
+Handle complex relationships like one-to-many, many-to-one, and many-to-many between database tables.
+Key Features:
+Automatic ORM Mapping: Converts Java classes into database tables and vice versa.
+HQL (Hibernate Query Language): Provides an object-oriented query language.
+Lazy Loading: Fetches related data only when needed.
+Transaction Management: Simplifies transaction handling.
+Database Independence: Works with multiple databases without changing code.
+Basic Example in Java
+1. Hibernate Configuration: Create a hibernate.cfg.xml file for database connection settings:
+
+xml
+Копиране на код
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/your_db</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+    </session-factory>
+</hibernate-configuration>
+2. Java Entity Class: Map a Java class to a database table using annotations.
+
+java
+Копиране на код
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Employee {
+    @Id
+    private int id;
+    private String name;
+    private String department;
+
+    // Getters and setters
+}
+3. CRUD Operations with Hibernate: Use Hibernate API to perform database operations.
+
+java
+Копиране на код
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class HibernateExample {
+    public static void main(String[] args) {
+        // Step 1: Create SessionFactory
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+        // Step 2: Create Session
+        Session session = factory.openSession();
+
+        // Step 3: Start a transaction
+        Transaction transaction = session.beginTransaction();
+
+        // Step 4: Create and save an object
+        Employee employee = new Employee();
+        employee.setId(1);
+        employee.setName("John Doe");
+        employee.setDepartment("IT");
+
+        session.save(employee); // Save to database
+
+        // Step 5: Commit transaction and close session
+        transaction.commit();
+        session.close();
+        factory.close();
+    }
+}
+This code demonstrates how to save an Employee object to the database using Hibernate.
+
+
+
+
+
+
+
+

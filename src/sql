@@ -1,188 +1,393 @@
+ see it in good format it with IntelliJ
+# SQL Learning Guide
+
+## Table of Contents
+1. [Table Creation and Column Management](#1-table-creation-and-column-management)
+2. [Data Manipulation](#2-data-manipulation)
+3. [Constraints](#3-constraints)
+4. [Transaction Management](#4-transaction-management)
+5. [Date and Time Handling](#5-date-and-time-handling)
+6. [Table Creation and Modification](#6-table-creation-and-modification)
+7. [Foreign Key Constraints](#7-foreign-key-constraints)
+8. [Table Joins](#8-table-joins)
+9. [Aggregate Functions](#9-aggregate-functions)
+10. [Logical Operators](#10-logical-operators)
+11. [Wildcard Searches](#11-wildcard-searches)
+12. [Ordering and Limiting Results](#12-ordering-and-limiting-results)
+13. [Subqueries and Views](#13-subqueries-and-views)
+14. [Grouping and Aggregating](#14-grouping-and-aggregating)
+15. [Indexes](#15-indexes)
+16. [ON DELETE Constraints](#16-on-delete-constraints)
+17. [Stored Procedures](#17-stored-procedures)
+18. [Triggers](#18-triggers)
+
+## 1. Table Creation and Column Management
+
+### Table and Column Manipulation
+- `CREATE TABLE`: Define table structure
+- `ALTER TABLE`: Modify existing table
+  - Add/modify/drop columns
+  - Rename columns
+  - Add constraints
+
+```sql
 -- Create Employees Table
-/*
 CREATE TABLE employees (
     employee_id INT,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
-    salary DECIMAL(9,2),
+    hourly_pay DECIMAL(9,2),
     hire_date DATE
 );
-*/
 
--- Modify Table/Columns Examples
--- ALTER TABLE employees
---     ADD phone_number VARCHAR(15);
--- ALTER TABLE employees
---     RENAME COLUMN phone_number TO email;
--- ALTER TABLE employees
---     MODIFY COLUMN email VARCHAR(100);
--- ALTER TABLE employees
---     MODIFY email VARCHAR(100) AFTER last_name;
--- ALTER TABLE employees
---     MODIFY email VARCHAR(100) FIRST;
--- ALTER TABLE employees
---     DROP COLUMN email;
--- ALTER TABLE employees
---     RENAME COLUMN salary TO hourly_pay;
-
--- Insertion Examples
--- INSERT INTO employees
--- VALUES
---     (1, "Eugene", "Crabs", 25.5, "2024-01-09"),
---     (2, "Squidward", "Tentacles", 15.00, "2024-02-27"),
---     (3, "Spongebob", "Squarepants", 20.00, "2024-03-18");
-
--- Partial Insertion
--- INSERT INTO employees (employee_id, first_name)
--- VALUES (4, "Plankton");
-
--- Selection Examples
--- SELECT hire_date, first_name, last_name FROM employees;
--- SELECT * FROM employees WHERE employee_id = 1;
--- SELECT * FROM employees WHERE hourly_pay > 15;
--- SELECT * FROM employees WHERE hire_date > "2024-02-01";
--- SELECT * FROM employees WHERE employee_id != 1;
--- SELECT * FROM employees WHERE hire_date IS NULL;
-
--- Deletion Examples
--- DELETE FROM employees; -- Deletes every row
--- DELETE FROM employees WHERE employee_id = 1;
-
--- Update Examples
--- UPDATE employees
--- SET
---     hourly_pay = 10.25,
---     hire_date = "2024-06-22"
--- WHERE employee_id = 4;
--- UPDATE employees
--- SET hire_date = NULL
--- WHERE employee_id = 4;
-
--- Transaction Management
--- SET autocommit = OFF; -- Transaction doesn't auto-save
--- COMMIT; -- Set checkpoint
--- DELETE FROM employees;
--- ROLLBACK; -- Revert to last checkpoint
--- SET autocommit = ON;
-
--- Date and Time Table
-/*
-CREATE TABLE test (
-    my_date DATE,
-    my_time TIME,
-    my_datetime DATETIME
-);
-
-INSERT INTO test
-VALUES (
-    CURRENT_DATE() + 1,
-    CURRENT_TIME(),
-    NOW()
-);
-SELECT * FROM test;
-DROP TABLE test;
-*/
-
--- Unique Constraint Example
-/*
-CREATE TABLE products (
-    product_id INT,
-    product_name VARCHAR(25) UNIQUE,
-    price DECIMAL(4,2)
-);
-
-ALTER TABLE products
-ADD CONSTRAINT
-UNIQUE(product_name);
-
-INSERT INTO products
-VALUES
-    (1, "hamburger", 3.99),
-    (2, "fries", 1.99),
-    (3, "soda", 0.99);
-*/
-
--- Not Null Constraint Example
-/*
-CREATE TABLE products (
-    product_id INT NOT NULL,
-    product_name VARCHAR(25) UNIQUE,
-    price DECIMAL(4,2)
-);
-
-ALTER TABLE products
-MODIFY price DECIMAL(4,2) NOT NULL;
-*/
-
--- Check Constraint Example
-/*
-CREATE TABLE employees (
-    employee_id INT,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    salary DECIMAL(9,2),
-    hire_date DATE,
-    CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00)
-);
-
+-- Modify Table
 ALTER TABLE employees
-ADD CONSTRAINT chk_hourly_pay CHECK (hourly_pay >= 10.00);
-*/
+    ADD email VARCHAR(100);
+ALTER TABLE employees
+    MODIFY email VARCHAR(100) AFTER last_name;
+```
 
--- Default Constraint Example
-/*
+## 2. Data Manipulation
+
+### Inserting, Selecting, Updating, and Deleting Data
+- `INSERT`: Add new rows
+- `SELECT`: Retrieve data
+- `UPDATE`: Modify existing rows
+- `DELETE`: Remove rows
+
+```sql
+-- Insertion
+INSERT INTO employees
+VALUES
+    (1, "Eugene", "Crabs", 25.5, "2024-01-09"),
+    (2, "Squidward", "Tentacles", 15.00, "2024-02-27");
+
+-- Filtering Selection
+SELECT * FROM employees
+WHERE hourly_pay > 15
+AND hire_date > "2024-02-01";
+
+-- Update Example
+UPDATE employees
+SET hourly_pay = 10.25
+WHERE employee_id = 1;
+```
+
+## 3. Constraints
+
+### Table Constraints
+- `UNIQUE`: Prevent duplicate values
+- `NOT NULL`: Require a value
+- `CHECK`: Validate data conditions
+- `DEFAULT`: Set default values
+
+```sql
 CREATE TABLE products (
     product_id INT NOT NULL,
     product_name VARCHAR(25) UNIQUE,
-    price DECIMAL(4,2) DEFAULT 0
+    price DECIMAL(4,2) DEFAULT 0,
+    CONSTRAINT chk_price CHECK (price >= 0)
 );
+```
 
-ALTER TABLE products
-ALTER price SET DEFAULT 0;
+## 4. Transaction Management
+- `COMMIT`: Save changes
+- `ROLLBACK`: Revert to last checkpoint
+- `SET autocommit`: Control automatic saving
 
-INSERT INTO products (product_id, product_name)
-VALUES (104, "straw");
-*/
+```sql
+SET autocommit = OFF;
+DELETE FROM employees;
+ROLLBACK; -- Reverses the delete
+SET autocommit = ON;
+```
 
--- Transaction Table with Default Datetime
-/*
-CREATE TABLE transaction (
-    transaction_id INT,
+## 5. Date and Time Handling
+- `DATE`: Store dates
+- `TIME`: Store times
+- `DATETIME`: Store date and time
+- `NOW()`: Current timestamp
+
+```sql
+CREATE TABLE events (
+    event_date DATE,
+    event_time TIME,
+    event_datetime DATETIME DEFAULT NOW()
+);
+```
+
+## 6. Table Creation and Modification
+
+### Primary Key and Auto-Increment
+- Use `PRIMARY KEY` to define a unique identifier for each row
+- `AUTO_INCREMENT` automatically generates sequential unique IDs
+
+```sql
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+```
+
+## 7. Foreign Key Constraints
+
+### Establishing Relationships Between Tables
+- `FOREIGN KEY` creates a link between two tables
+- Ensures referential integrity
+- Prevents deletion of referenced rows
+
+```sql
+CREATE TABLE transactions (
+    transaction_id INT PRIMARY KEY AUTO_INCREMENT,
     amount DECIMAL(5,2),
-    transaction_date DATETIME DEFAULT NOW()
+    customer_id INT,
+    FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 );
+```
 
-INSERT INTO transaction (transaction_id, amount)
-VALUES (1, 4.99);
-*/
+## 8. Table Joins
 
--- Primary Key Example
-/*
-CREATE TABLE transaction (
+### Types of Joins
+- **INNER JOIN**: Returns only matching rows from both tables
+- **LEFT JOIN**: Returns all rows from the left table, matching rows from right
+- **RIGHT JOIN**: Returns all rows from right table, matching rows from left
+
+```sql
+-- Inner Join Example
+SELECT * FROM
+transactions INNER JOIN customers
+ON transactions.customer_id = customers.customer_id;
+```
+
+## 9. Aggregate Functions
+
+### Common Aggregate Functions
+- `COUNT()`: Count number of rows
+- `MAX()`: Find maximum value
+- `MIN()`: Find minimum value
+- `AVG()`: Calculate average
+- `SUM()`: Calculate total sum
+- `CONCAT()`: Combine strings
+
+```sql
+SELECT
+    COUNT(amount) AS "transaction_count",
+    MAX(amount) AS "maximum_transaction",
+    AVG(amount) AS "average_transaction"
+FROM transactions;
+```
+
+## 10. Logical Operators
+
+### Key Logical Operators
+- `AND`: All conditions must be true
+- `OR`: At least one condition must be true
+- `NOT`: Negates a condition
+- `BETWEEN`: Check if value is within a range
+- `IN()`: Check if value matches any in a list
+
+```sql
+SELECT * FROM employees
+WHERE hire_date BETWEEN "2024-03-01" AND "2025-01-01"
+AND job IN("cook", "manager");
+```
+
+## 11. Wildcard Searches
+
+### Pattern Matching with LIKE
+- `%`: Matches zero or more characters
+- `_`: Matches exactly one character
+
+```sql
+SELECT * FROM employees
+WHERE first_name LIKE "s%";  -- Names starting with 's'
+SELECT * FROM employees
+WHERE hire_date LIKE "____-02-__";  -- Transactions in February
+```
+
+## 12. Ordering and Limiting Results
+
+### Sorting and Pagination
+- `ORDER BY`: Sort results
+- `LIMIT`: Restrict number of returned rows
+
+```sql
+SELECT * FROM customers
+ORDER BY last_name DESC
+LIMIT 3;  -- First 3 rows
+```
+
+## 13. Subqueries and Views
+
+### Nested Queries and Saved Query Structures
+- Subqueries: Query within another query
+- Views: Saved SELECT statements
+
+```sql
+-- Subquery example
+SELECT first_name, last_name, hourly_pay
+FROM employees
+WHERE hourly_pay > (SELECT AVG(hourly_pay) FROM employees);
+```
+
+## 14. Grouping and Aggregating
+
+### GROUP BY and Aggregate Analysis
+- Group rows with similar values
+- Use with aggregate functions
+- `HAVING` for filtering grouped results
+
+```sql
+SELECT sum(amount), order_date
+FROM transactions
+GROUP BY order_date
+WITH ROLLUP;
+```
+
+## 15. Indexes
+
+### Purpose and Usage of Indexes
+- Speed up data retrieval
+- Improves query performance
+- Uses B-tree data structure
+- Can be created on one or multiple columns
+- Increases insert/update time slightly
+
+```sql
+-- Create an index
+CREATE INDEX idx_last_name
+ON employees (last_name);
+
+-- Composite (Multi-column) Index
+CREATE INDEX idx_name_date
+ON employees (last_name, hire_date);
+
+-- Unique Index
+CREATE UNIQUE INDEX idx_email
+ON employees (email);
+```
+
+## 16. ON DELETE Constraints
+
+### Referential Integrity Management
+- Control what happens when a referenced row is deleted
+- Key options:
+  - `CASCADE`: Delete related rows
+  - `SET NULL`: Set foreign key to NULL
+  - `RESTRICT`: Prevent deletion of referenced row
+  - `NO ACTION`: Similar to RESTRICT
+
+```sql
+-- Example with CASCADE
+CREATE TABLE transactions (
     transaction_id INT PRIMARY KEY,
-    amount DECIMAL(5,2),
-    transaction_date DATETIME DEFAULT NOW()
+    customer_id INT,
+    FOREIGN KEY (customer_id)
+    REFERENCES customers(customer_id)
+    ON DELETE CASCADE
 );
-ALTER TABLE transaction
-ADD CONSTRAINT
-PRIMARY KEY (transaction_id);
-*/
--- ----------------------------------------------
 
+-- Example with SET NULL
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    FOREIGN KEY (customer_id)
+    REFERENCES customers(customer_id)
+    ON DELETE SET NULL
+);
+```
 
+## 17. Stored Procedures
 
+### Creating Reusable SQL Code Blocks
+- Precompiled SQL statements
+- Can accept parameters
+- Improve performance and security
+- Encapsulate complex logic
 
+```sql
+-- Create a Stored Procedure
+DELIMITER //
 
+CREATE PROCEDURE GetEmployeesByHireDate(IN hire_year DATE)
+BEGIN
+    SELECT * FROM employees
+    WHERE hire_date >= hire_year;
+END //
 
+DELIMITER ;
 
+-- Call the Stored Procedure
+CALL GetEmployeesByHireDate('2024-01-01');
 
+-- Stored Procedure with Multiple Parameters
+DELIMITER //
 
+CREATE PROCEDURE UpdateEmployeeSalary(
+    IN emp_id INT,
+    IN new_salary DECIMAL(9,2)
+)
+BEGIN
+    UPDATE employees
+    SET hourly_pay = new_salary
+    WHERE employee_id = emp_id;
+END //
 
+DELIMITER ;
+```
 
+## 18. Triggers
 
+### Automatic Actions on Table Events
+- Execute automatically on specific database events
+- Can fire BEFORE or AFTER:
+  - INSERT
+  - UPDATE
+  - DELETE
+- Useful for auditing, validation, and maintaining data integrity
 
+```sql
+-- Create a Trigger to Log Employee Salary Changes
+DELIMITER //
 
+CREATE TRIGGER before_employee_update
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    INSERT INTO employee_salary_log
+    SET
+        employee_id = OLD.employee_id,
+        old_salary = OLD.hourly_pay,
+        new_salary = NEW.hourly_pay,
+        changed_at = NOW();
+END //
 
+DELIMITER ;
 
+-- Create a Trigger to Prevent Invalid Salary Updates
+DELIMITER //
 
+CREATE TRIGGER validate_salary_update
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.hourly_pay < 10.00 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Hourly pay cannot be less than $10.00';
+    END IF;
+END //
 
+DELIMITER ;
+```
+
+## Key Best Practices
+- Always define appropriate primary and foreign keys
+- Use indexes judiciously
+- Be careful with ON DELETE constraints
+- Stored procedures can improve performance
+- Triggers add complexity, use sparingly
+- Practice writing clear, readable queries
+- Always test thoroughly before implementing in production
+
+**Note**: This guide is a learning resource. Specific implementation may vary slightly between different SQL databases.
