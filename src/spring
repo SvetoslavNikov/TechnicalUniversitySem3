@@ -1,0 +1,102 @@
+### What is Spring?
+
+**Spring** is a powerful, lightweight, and flexible **framework** for building Java applications. It simplifies enterprise-level Java development by providing infrastructure support for building applications. Spring emphasizes dependency injection (DI), aspect-oriented programming (AOP), and seamless integration with various technologies.
+
+---
+
+### Key Features of Spring:
+1. **Dependency Injection (DI)**: Promotes loose coupling by injecting dependencies into objects.
+2. **Aspect-Oriented Programming (AOP)**: Provides cross-cutting concerns like logging, security, etc.
+3. **Spring Boot**: Simplifies application configuration and deployment.
+4. **Spring MVC**: Simplifies building web applications.
+5. **Integration with other frameworks**: Hibernate, JPA, RabbitMQ, etc.
+
+---
+
+### Example: Spring Dependency Injection (DI) for a Simple Application
+
+This example demonstrates how to use Spring DI to manage a simple service and a controller.
+
+#### Step 1: Add Maven Dependencies (e.g., `pom.xml`)
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>5.3.25</version>
+    </dependency>
+</dependencies>
+```
+
+---
+
+#### Step 2: Define a Service Class
+```java
+import org.springframework.stereotype.Service;
+
+@Service
+public class GreetingService {
+    public String getGreeting() {
+        return "Hello, Spring Framework!";
+    }
+}
+```
+
+---
+
+#### Step 3: Create a Controller Class
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class GreetingController {
+
+    private final GreetingService greetingService;
+
+    @Autowired
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public void printGreeting() {
+        System.out.println(greetingService.getGreeting());
+    }
+}
+```
+
+---
+
+#### Step 4: Define the Application Configuration (Using Spring Context)
+```java
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = "your.package.name")
+public class SpringAppConfig {
+    public static void main(String[] args) {
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringAppConfig.class);
+        GreetingController controller = context.getBean(GreetingController.class);
+        controller.printGreeting();
+    }
+}
+```
+
+---
+
+### Output:
+```
+Hello, Spring Framework!
+```
+
+---
+
+### Explanation:
+1. **DI and @Autowired**: Spring injects `GreetingService` into `GreetingController` at runtime.
+2. **@ComponentScan**: Automatically detects and wires components annotated with `@Component` or `@Service`.
+3. **ApplicationContext**: Central interface to access Spring beans.
+
+This example shows the power of Spring in managing dependencies and simplifying application architecture.
