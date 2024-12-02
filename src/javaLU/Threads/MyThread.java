@@ -29,9 +29,7 @@ public class MyThread extends Thread {
         try {
         for (int i = 5; i > 0; i--) {
             System.out.println("Threads ends in: " + i);
-
                 Thread.sleep(1000);
-
         }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
