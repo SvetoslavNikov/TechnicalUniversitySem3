@@ -2,20 +2,6 @@ package Trees.correctBST;
 
 import java.util.*;
 
-class correctedBST {
-    public static void main(String[] args) {
-        BST tree = new BST();
-        tree.insert(30);
-        tree.insert(50);
-        tree.insert(15);
-        tree.insert(20);
-        tree.insert(10);
-        tree.insert(40);
-        tree.insert(60);
-        tree.inorder();
-    }
-}
-
 class Node {
     Node left;
     int val;
@@ -59,38 +45,17 @@ class BST {
     public void reverseOrder(){
         Node temp = root;
         Stack<Node> stack = new Stack<>();
-        while(temp != null || stack.isEmpty()){
+        while(temp != null || !stack.isEmpty()){
             if(temp != null){
                 stack.add(temp);
                 temp = temp.right;
             } else {
                 temp = stack.pop();
-                System.out.println(temp);
+                System.out.print(temp.val + " ");
                 temp = temp.left;
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void inorder() {
         Node temp = root;
@@ -106,4 +71,22 @@ class BST {
             }
         }
     }
+    //recursive way
+    void inOrderDescending(Node node) {
+        if (node != null) {
+            inOrderDescending(node.right);  // Loads the Right subtree
+            System.out.print(node.val + " ");  // Root
+            inOrderDescending(node.left);  // Left subtree
+        }
+    }
+
+    void inOrderIncreasing(Node node){
+        if
+        (node!= null){
+            inOrderIncreasing(node.left);
+            System.out.print(node.val + " ");
+            inOrderIncreasing(node.right);
+        }
+    }
+
 }
