@@ -56,6 +56,42 @@ class BST {
         }
     }
 
+    public void reverseOrder(){
+        Node temp = root;
+        Stack<Node> stack = new Stack<>();
+        while(temp != null || stack.isEmpty()){
+            if(temp != null){
+                stack.add(temp);
+                temp = temp.right;
+            } else {
+                temp = stack.pop();
+                System.out.println(temp);
+                temp = temp.left;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void inorder() {
         Node temp = root;
         Stack<Node> stack = new Stack<>();
