@@ -22,7 +22,7 @@ public class TicTacToe extends JFrame {
                 frame.add(button);
             }
             frame.setLocationRelativeTo(null);
-            // Center the window on the screen
+
             frame.setVisible(true);
         } catch(InterruptedException e){
             System.out.println("Program is interrupted");
@@ -31,13 +31,10 @@ public class TicTacToe extends JFrame {
 
     }
 
-    /*private  ListenerForButtonClick(ActionEvent e, JButton button){
-        JButton clickedButton = (JButton) e.getSorce();
-    }*/
 
 
     public static void main(String[] args) {
-        new TicTacToe(); // Create an instance of the frame
+        new TicTacToe();
     }
 }
 

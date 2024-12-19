@@ -14,18 +14,18 @@ public class SudokuGame extends JFrame {
         setLayout(new GridLayout(9, 9));
 
 
-        // Create and add cells to the frame
+
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 cells[row][col] = new JTextField();
                 cells[row][col].setHorizontalAlignment(JTextField.CENTER);
                 cells[row][col].setFont(new Font("Arial", Font.PLAIN, 24));
-                cells[row][col].setEditable(true); // Make it editable
+                cells[row][col].setEditable(true);
                 add(cells[row][col]);
             }
         }
 
-        // Add a button to submit moves
+
         JButton submitButton = new JButton("Submit Move");
         submitButton.addActionListener(new ActionListener() {
             @Override
@@ -34,9 +34,9 @@ public class SudokuGame extends JFrame {
             }
         });
 
-        add(submitButton); // Add submit button to the frame
+        add(submitButton);
 
-        // Set up frame properties
+
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

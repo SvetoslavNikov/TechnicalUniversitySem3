@@ -9,7 +9,6 @@ public class Board {
     }
 
     private void initializeBoard() {
-        // Example static board, you can modify it as needed
         int[][] initialGrid = {
                 {5, 3, 0, 0, 7, 0, 0, 0, 0},
                 {6, 0, 0, 1, 9, 5, 0, 0, 0},
@@ -28,7 +27,6 @@ public class Board {
     }
 
     public void printBoard() {
-        // Optional: Print board to console for debugging
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print(grid[i][j] + " ");

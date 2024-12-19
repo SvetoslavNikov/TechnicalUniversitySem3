@@ -5,8 +5,7 @@ import java.io.File;
 public class FileTreePrinter {
 
     public static void main(String[] args) {
-        // Specify the directory to start from
-        File rootDirectory = new File("C:\\Users\\Lenovo\\IdeaProjects\\TechnicalUniversitySem3"); // Change this to your directory path
+        File rootDirectory = new File("C:\\Users\\Lenovo\\IdeaProjects\\TechnicalUniversitySem3\\src"); // Change this to your directory path
 
         if (rootDirectory.exists() && rootDirectory.isDirectory()) {
             printFileTree(rootDirectory, 0);
@@ -15,26 +14,24 @@ public class FileTreePrinter {
         }
     }
 
-    // Recursive method to print the file tree
+    // recursion used
     public static void printFileTree(File directory, int level) {
-        // Print the current directory or file with indentation based on level
+
         printWithIndentation(directory.getName(), level);
 
-        // If it's a directory, process its contents
         if (directory.isDirectory()) {
             File[] files = directory.listFiles();
             if (files != null) {
                 for (File file : files) {
-                    printFileTree(file, level + 1); // Recurse for each file/directory
+                    printFileTree(file, level + 1);
                 }
             }
         }
     }
 
-    // Helper method to print with indentation
     private static void printWithIndentation(String name, int level) {
         for (int i = 0; i < level; i++) {
-            System.out.print("  "); // Add two spaces per level
+            System.out.print("  "); // add spaces for each level
         }
         System.out.println(name);
     }
