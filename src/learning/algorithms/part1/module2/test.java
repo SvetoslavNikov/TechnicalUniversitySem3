@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 class test {
     public static void main(String[] args) {
-        UF union_find = new UF(6);
+        QuickUnionV2Weighting union_find = new QuickUnionV2Weighting(6);
         union_find.union(1,2);
         union_find.printAllUnions();
 
