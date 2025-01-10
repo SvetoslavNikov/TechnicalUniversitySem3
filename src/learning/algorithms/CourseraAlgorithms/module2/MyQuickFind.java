@@ -1,4 +1,4 @@
-package learning.algorithms.part1.module2;
+package learning.algorithms.CourseraAlgorithms.module2;
 
 class MyQuickFind {
     int arr[];

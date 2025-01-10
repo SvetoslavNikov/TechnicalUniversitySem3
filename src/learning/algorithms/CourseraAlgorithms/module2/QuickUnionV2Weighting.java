@@ -1,10 +1,10 @@
-package learning.algorithms.part1.module2;
+package learning.algorithms.CourseraAlgorithms.module2;
 
-class QuickUnionV3PathCompression {
+class QuickUnionV2Weighting {
     int arr[];
     int sz[];
 
-    public QuickUnionV3PathCompression(int n) {
+    public QuickUnionV2Weighting(int n) {
         this.arr = new int[n];
         this.sz = new int[n];
         for (int i = 0; i < arr.length; i++) {
@@ -18,11 +18,7 @@ class QuickUnionV3PathCompression {
     // 0 1 2 3 4 5 6 7 8 9
     // 0 1 9 4 9 6 6 7 8 9
     private int root(int n) {
-        while (arr[n] != n) {
-            arr[n] = arr[arr[n]];
-            //tree can't get deeper than 2
-            n = arr[n];
-        }
+        while (arr[n] != n) n = arr[n];
         return n;
     }
 
@@ -66,3 +62,6 @@ class QuickUnionV3PathCompression {
         System.out.println();
     }
 }
+
+
+

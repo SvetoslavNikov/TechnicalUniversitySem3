@@ -1,6 +1,4 @@
-package learning.algorithms.part1.module2;
-
-import java.util.LinkedList;
+package learning.algorithms.CourseraAlgorithms.module2;
 
 class test {
     public static void main(String[] args) {

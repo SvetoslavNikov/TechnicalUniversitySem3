@@ -1,41 +1,32 @@
-package learning.algorithms.part1.module2;
-class QuickFind{
+package learning.algorithms.CourseraAlgorithms.module2;
 
+class QuickUnionV1 {
+    //The Problem with this implementation is that
+    //the tree structure can become too tall
+    //resulting in N complexity in the root method
     int arr[];
-    public QuickFind(int n) {
+    public QuickUnionV1(int n) {
         this.arr = new int[n];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = i;
         }
     }
 
+    // 0 1 2 3 4 5 6 7 8 9
+    // 0 1 9 4 9 6 6 7 8 9
+    private int root(int n){
+        while(arr[n] != n) n = arr[n];
+        return n;
+    }
+
 
     public void union(int a, int b) {
-        //a = 1 b = 4
-        // 1 2 3 4 5 6
-        // 1 1 3 3 5 5
-        int aId = arr[a];
-        //1
-
-        int bId = arr[b];
-        //3
-
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == bId){
-                arr[i] = aId;
-            }
-        }
-        //max 2N operations
-        //1 2 3 4 5 6
-        //6 6 6 6 5 6
-
-        //1 2 3 4 5 6
-        //5 5 5 5 5 5
+        arr[root(a)] = root(b);
     }
 
 
     public boolean connected(int a, int b) {
-        return arr[a] == arr[b];
+        return root(a) == root(b);
     }
 
 
