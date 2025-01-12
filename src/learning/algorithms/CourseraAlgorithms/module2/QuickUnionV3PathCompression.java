@@ -45,6 +45,18 @@ class QuickUnionV3PathCompression {
         return root(a) == root(b);
     }
 
+    //returns the largest element
+    public int find(int i){
+        int root = root(i);
+        int largestElement = i;
+        for (int j = 0; j < arr.length; j++) {
+            if(root(arr[i]) == root && i>largestElement){
+                largestElement = arr[i];
+            }
+        }
+        return largestElement;
+    }
+
 
     public void printAllUnions() {
         System.out.print("index: ");
