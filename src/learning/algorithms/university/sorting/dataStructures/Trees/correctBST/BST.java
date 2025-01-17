@@ -1,4 +1,4 @@
-package learning.algorithms.dataStructures.Trees.correctBST;
+package learning.algorithms.university.sorting.dataStructures.Trees.correctBST;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package learning.algorithms.CourseraAlgorithms.module2;
+package learning.algorithms.CourseraAlgorithms.part1.module2;
 
 import java.util.LinkedList;
 

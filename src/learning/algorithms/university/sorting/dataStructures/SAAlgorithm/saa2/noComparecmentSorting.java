@@ -1,4 +1,4 @@
-package learning.algorithms.dataStructures.SAAlgorithm.saa2;
+package learning.algorithms.university.sorting.dataStructures.SAAlgorithm.saa2;
 //pyramid three structure to one dimensional array, sorting it
 // rules for a three structure to be a pyramid three structure
 // both branches should have no more than one level difference in height/dept

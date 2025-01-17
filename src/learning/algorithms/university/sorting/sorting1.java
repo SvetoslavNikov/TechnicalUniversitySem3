@@ -1,4 +1,4 @@
-package learning.algorithms.sorting.sorting;
+package learning.algorithms.university.sorting;
 
 
 public class sorting1 {

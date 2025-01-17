@@ -1,4 +1,4 @@
-package learning.algorithms.sorting.sorting;// sort: both select and insert sort
+package learning.algorithms.university.sorting;// sort: both select and insert sort
 // demonstrate more about arrays and encapsulation
 
 

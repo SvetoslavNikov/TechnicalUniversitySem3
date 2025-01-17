@@ -1,4 +1,4 @@
-package learning.algorithms.dataStructures.Trees.BasicTree;
+package learning.algorithms.university.sorting.dataStructures.Trees.BasicTree;
 
 public class BST {
 

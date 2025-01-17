@@ -1,4 +1,4 @@
-package learning.algorithms.dataStructures.SAAlgorithm.saa3;
+package learning.algorithms.university.sorting.dataStructures.SAAlgorithm.saa3;
 
 public class insert {
     public static void main(String[] args) {
