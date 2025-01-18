@@ -1,11 +1,11 @@
 package learning.algorithms.neetCode.GroupAnagrams;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class test {
     public static void main(String[] args) {
-        String s1 = "Svetlio";
-        String s2 = "Svetlio";
-        if(s1 == s2){
-            System.out.println(true);
-        }
+        List<String> ls = new ArrayList<>();
+        System.out.println(ls);
     }
 }
