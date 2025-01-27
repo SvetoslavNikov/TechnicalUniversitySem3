@@ -40,11 +40,26 @@ class AdjacencyMatrixGraph {
         nodes = new ArrayList<>();
     }
 
-    public void depthFirstSearch(int start){
-        for (int i = 0; i < matrix[start].length; i++) {
-            if()
+    public void depthFirstSearch(int src) {
+        boolean[] visited = new boolean[matrix.length];
+        dFSHelper(src, visited);
+    }
+    private void dFSHelper(int src, boolean[] visited) {
+
+        if(visited[src]) {
+            return;
+        }
+        else {
+            visited[src] = true;
+            System.out.println(nodes.get(src).getData() + " = visited");
         }
 
+        for(int i = 0; i < matrix[src].length; i++) {
+            if(matrix[src][i] == 1) {
+                dFSHelper(i, visited);
+            }
+        }
+        return;
     }
 
     public void addNode(Node node){
