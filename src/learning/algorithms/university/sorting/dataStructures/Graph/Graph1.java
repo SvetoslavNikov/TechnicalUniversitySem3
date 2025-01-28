@@ -1,9 +1,6 @@
 package learning.algorithms.university.sorting.dataStructures.Graph;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Graph1 {
     public static void main(String[] args) {
@@ -38,6 +35,28 @@ class AdjacencyMatrixGraph {
     public AdjacencyMatrixGraph(int matrixSize){
         matrix = new int[matrixSize][matrixSize];
         nodes = new ArrayList<>();
+    }
+
+    public void breadthFirstSearch(int src) {
+
+        Queue<Integer> queue = new LinkedList<>();
+        boolean[] visited = new boolean[matrix.length];
+
+        queue.offer(src);
+        visited[src] = true;
+
+        while (queue.size() != 0) {
+
+            src = queue.poll();
+            System.out.println(nodes.get(src).getData() + " = visited");
+
+            for (int i = 0; i < matrix[src].length; i++) {
+                if (matrix[src][i] == 1 && !visited[i]) {
+                    queue.offer(i);
+                    visited[i] = true;
+                }
+            }
+        }
     }
 
     public void depthFirstSearch(int src) {
