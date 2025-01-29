@@ -1,4 +1,4 @@
-package learning.algorithms.university.sorting.sorting;
+package learning.algorithms.university.sorting;
 
 public class InsertionSort {
     public static void insertionSort(int[] arr) {

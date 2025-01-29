@@ -1,4 +1,4 @@
-package learning.algorithms.university.sorting.dataStructures.QueueStack;
+package learning.algorithms.university.dataStructures.QueueStack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

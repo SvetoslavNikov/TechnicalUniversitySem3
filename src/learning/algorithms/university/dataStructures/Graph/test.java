@@ -1,4 +1,4 @@
-package learning.algorithms.university.sorting.dataStructures.Graph;
+package learning.algorithms.university.dataStructures.Graph;
 
 import java.util.ArrayList;
 import java.util.List;

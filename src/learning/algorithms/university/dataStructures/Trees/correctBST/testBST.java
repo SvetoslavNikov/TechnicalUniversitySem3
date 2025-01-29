@@ -1,4 +1,4 @@
-package learning.algorithms.university.sorting.dataStructures.Trees.correctBST;
+package learning.algorithms.university.dataStructures.Trees.correctBST;
 
 
 class testBST {

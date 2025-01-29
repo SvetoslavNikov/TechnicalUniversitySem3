@@ -1,4 +1,4 @@
-package learning.algorithms.university.sorting.dataStructures.Trees.BasicTree;
+package learning.algorithms.university.dataStructures.Trees.BasicTree;
 
 public class TreeTest {
     public static void main(String[] args) {
