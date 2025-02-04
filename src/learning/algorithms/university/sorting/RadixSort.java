@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class RadixSort {
     // A utility function to get the maximum value in an array
     private static int getMax(int[] arr) {
+        int a = 23;
         int max = arr[0];
         for (int num : arr) {
             if (num > max) {
