@@ -1,0 +1,17 @@
+Languages like java for example are platform-independent meaning
+there is no difference in the source code you have to write based on the OS.
+That is not the case with languages like C, C++, C# where if you go make something that is on deep level
+like a game you will have to take into consideration the OS that it will be run into.
+
+- **Java**: **Source → Compile → Bytecode → JVM → System calls**
+- **Python**: **Source → Interpreter → Bytecode → PVM → System calls**
+- **Bash**: **Source → Interpreter → Binary → System calls**
+
+C#
+- **Source → Compile → IL (Intermediate Language)**
+- **Run IL → CLR → JIT Compilation → Machine Code → System Calls**
+
+Just like Java and Python, C# also requires the appropriate runtime (**.NET runtime**) installed.
+The key difference is that it uses **Intermediate Language (IL)**,
+ which is compiled to machine code at runtime via **JIT compilation**,
+instead of running directly as bytecode or binaries.
