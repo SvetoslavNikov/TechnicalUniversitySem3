@@ -1,0 +1,132 @@
+```bash
+cry0l1t3@htb[/htb]$ ls -l /etc/passwd
+
+- rwx rw- r--   1 root root 1641 May  4 23:42 /etc/passwd
+- --- --- ---   |  |    |    |   |__________|
+|  |   |   |    |  |    |    |        |_ Date
+|  |   |   |    |  |    |    |__________ File Size
+|  |   |   |    |  |    |_______________ Group
+|  |   |   |    |  |____________________ User
+|  |   |   |    |_______________________ Number of hard links
+|  |   |   |_ Permission of others (read)
+|  |   |_____ Permissions of the group (read, write)
+|  |_________ Permissions of the owner (read, write, execute)
+|____________ File type (- = File, d = Directory, l = Link, ... )
+```
+
+- (`r`) - Read
+- (`w`) - Write
+- (`x`) - Execute
+
+### **Permission Management Overview**
+
+Linux permissions govern access to files and directories to maintain security and control. These permissions apply to **owner**, **group**, and **others**.
+
+- **Permission Types:**
+    - `r` (Read): View file contents or list directory.
+    - `w` (Write): Modify file or directory contents.
+    - `x` (Execute): Run executable files or access directory contents.
+
+    - **u** - Owner (User)
+	- **g** - Group
+	- **o** - Others (not the owner)
+	- **a** - All
+	- **t** - Sticky bit
+	- **s** - SUID/SGID
+
+
+
+---
+
+### **Key Commands Table**
+
+| **Command**                                 | **Description**                                                              |
+| ------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ls -l`                                     | Lists files with permissions, owner, group, and other details.               |
+| `ls -ld <directory>`                        | Displays permissions and details of a directory itself, not its contents.    |
+| `chmod +x <file>`                           | Adds execute permissions for the owner, group, and others.                   |
+| `chmod u-w <file>`                          | Removes write permissions for the file owner.                                |
+| `chmod g+r,o-w <file>`                      | Grants group read permissions and removes write permissions for others.      |
+| `chmod 644 <file>`                          | Sets permissions using octal notation (Owner: rw-, Group: r--, Others: r--). |
+| `chown <user>:<group> <file>`               | Changes the ownership of a file or directory.                                |
+| `chown <user> <file>`                       | Changes only the owner of the file.                                          |
+| `chgrp <group> <file>`                      | Changes the group ownership of the file.                                     |
+| `stat <file>`                               | Displays detailed metadata, including permissions, owner, and group.         |
+| `getfacl <file>`                            | Retrieves Access Control List (ACL) permissions for a file or directory.     |
+| `setfacl -m u:<user>:<permissions> <file>`  | Adds ACL permissions for a specific user.                                    |
+| `setfacl -m g:<group>:<permissions> <file>` | Adds ACL permissions for a specific group.                                   |
+| `find <directory> -perm <mode>`             | Finds files or directories with specific permissions.                        |
+| `chmod -R <mode> <directory>`               | Recursively changes permissions for a directory and its contents.            |
+| `touch <file>`                              | Creates an empty file with default permissions for the owner.                |
+| `umask`                                     | Displays or sets the default permission mask for new files and directories.  |
+
+---
+
+### **Octal Example**
+
+```plaintext
+Permissions: rwxr-xr--
+Octal Notation: 754
+
+- Owner: Read (r), Write (w), Execute (x) → 7
+- Group: Read (r), Execute (x) → 5
+- Others: Read (r) → 4
+```
+
+Set using: `chmod 754 <file>`
+
+---
+
+### **Special Permissions**
+
+1. **SUID (Set User ID):** Allows programs to run with the privileges of the file owner.
+    Example: `chmod u+s <file>`
+    Permissions: `rws` (instead of `rwx`).
+
+2. **SGID (Set Group ID):** Allows programs to run with the privileges of the group.
+    Example: `chmod g+s <directory>`
+    Permissions: `rws` (for group).
+
+3. **Sticky Bit:** Prevents others from deleting or renaming files they don’t own in shared directories.
+    Example: `chmod +t <directory>`
+    Permissions: `t` (e.g., `drwxrwxr-t`).
+
+
+---
+
+### **Practical Examples**
+
+4. Add write permissions to a file for the group:
+
+    ```bash
+    chmod g+w file.txt
+    ```
+
+5. Remove execute permissions for others:
+
+    ```bash
+    chmod o-x file.sh
+    ```
+
+6. Recursively set all files in a directory to be read-only:
+
+    ```bash
+    chmod -R 444 /path/to/directory
+    ```
+
+7. Change the owner of a directory:
+
+    ```bash
+    chown newuser:newgroup /path/to/directory
+    ```
+
+8. Set permissions for a script to be executable by everyone:
+
+    ```bash
+    chmod a+x script.sh
+    ```
+
+
+---
+
+This expanded table should cover a variety of use cases while keeping the octal example concise. Let me know if you'd like more additions or details!
