@@ -142,5 +142,5 @@ git push origin --tags
 ```bash
 git diff
 ```  
-- **Keep Your Repo Clean:** Delete unused branches after merging.  
+- **Keep Repo Clean:** Delete unused branches after merging.
 
