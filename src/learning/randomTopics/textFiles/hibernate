@@ -21,7 +21,6 @@ Basic Example in Java
 1. Hibernate Configuration: Create a hibernate.cfg.xml file for database connection settings:
 
 xml
-Копиране на код
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/your_db</property>
@@ -34,7 +33,7 @@ xml
 2. Java Entity Class: Map a Java class to a database table using annotations.
 
 java
-Копиране на код
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
