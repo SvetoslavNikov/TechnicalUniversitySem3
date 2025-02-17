@@ -16,9 +16,9 @@ Git is a distributed version control system that helps developers track changes 
 - **Repository (Repo):** A directory that contains your project files and tracks their history.  
 - **Working Directory:** The current state of your files that you're working on.  
 - **Staging Area (Index):** Files you’ve marked to be included in the next commit.  
-- **Commit:** A snapshot of your project at a specific point in time.  
+- **Commit:** A snapshot of your project at a specific point in time.
 - **Branch:** A separate line of development that can diverge from the main project.
-- **HEAD:** The pointer to the latest commit in the branch you are currently on.  
+- **HEAD:** The pointer to the latest commit in the branch you are currently on.
 - **Remote:** A version of your project stored on another server (like GitHub, GitLab, etc.).  
 
 ---  
