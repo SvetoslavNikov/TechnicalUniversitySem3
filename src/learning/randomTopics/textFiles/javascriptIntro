@@ -1,0 +1,152 @@
+high level
+single threaded
+garbage collected
+interpreted || JIT compiled
+prototype based
+multi-paradigm
+dynamic language
+non-blocking event loop
+
+camelCase
+
+mdn web docs - documentation for html css js
+
+console.log()
+console.log( \`${myCity}.\` )
+
+'word'.length
+'word'.toUpperCase()
+' word '.trim()
+Math.random()
+Math.floor()
+Math.ceil()
+Number.isInteger()
+## Data types
+Number
+BigInt
+String
+Boolean
+Null
+Undefined
+Symbol
+Objects - includes instances of data types
+
+## Variables
+var - legacy
+- scoping issue - function scoped
+let
+- without assigning the variable a value
+- support value reassignment
+- scope block
+const
+- constant - Type Error if changed
+- scope block
+
+typeof varible
+
+if(true){
+
+}if else{}
+
+switch (){
+  case:
+    break;
+  default:
+    break;
+}
+
+!== ; ===;
+
+## Truthy  Falsy
+
+### Falsy
+0
+""
+null
+undefined
+NaN - Not a Number
+
+```js
+let tool = '';
+// Use short circuit evaluation to assign  writingUtensil variable below:
+let writingUtensil = tool || "pen";
+```
+
+
+ternary operator
+
+![[Pasted image 20250219171700.png]]
+
+```
+isNightTime === true ? ....
+```
+
+
+## Functions
+
+default parameters
+
+anonymous functions:
+```js
+const plantNeedsWater = function(day) {...};
+```
+
+arrow functions
+```js
+const plantNeedsWater = (day) => {...};
+//even more concise
+const plantNeedsWater = day => day === 'Wednesday' ? true : false;
+
+const func = (num) => num > 4 ? true : false;
+console.log(func(5))//true
+```
+
+
+
+![[Pasted image 20250219190955.png]]
+
+## Scope
+scope pollution - avoid using global variables in functions
+```js
+var name = "Alice"; // Global variable
+function setName(){
+	name = "Bob"; // Accidentally modifies the global variable
+}
+setName();
+console.log(name); // Outputs "Bob" because the global variable was polluted
+```
+```js
+const logVisibleLightWaves = () => {
+
+  let lightWaves = 'Moonlight';
+
+  let region = 'The Arctic';
+
+  if(region === "The Arctic"){
+
+    let lightWaves = "Northern Lights"
+
+    console.log(lightWaves)
+
+  }
+
+  console.log(lightWaves);
+
+};
+```
+
+## Arrays
+```js
+const newYearsResolutions = ['Keep a journal', 'Take a falconry class', 'Learn to juggle'];
+//despite `const` elements remain mutable. but we cant reassign new array
+arr.push("x")// adds it to the end
+arr.pop()//pops the last element
+arr.shift()//First in first out
+arr.unshift()//add element to the beginning
+arr.slice(begin,end(notincluded))
+arr.indexOf()
+
+//
+```
+
+
