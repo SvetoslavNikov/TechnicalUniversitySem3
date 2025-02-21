@@ -1,0 +1,431 @@
+Here's a cool and structured high-level summary of the information you provided:
+
+---
+
+# JavaScript Overview
+
+### Core Features:
+
+- **Single-threaded**
+- **Garbage Collected**
+- **Interpreted or JIT-compiled**
+- **Prototype-based**
+- **Multi-paradigm**
+- **Dynamic language**
+- **Non-blocking Event Loop**
+
+---
+# CODECADEMY
+ACTUAL CHEATSHEET: https://www.codecademy.com/learn/introduction-to-javascript/modules/learn-javascript-introduction/cheatsheet
+## Syntax & Conventions:
+
+- **Naming Convention:** `camelCase`
+- **Documentation:** [MDN Web Docs](https://developer.mozilla.org/) (HTML, CSS, JavaScript)
+
+### Common Methods & Functions
+
+```js
+console.log('Hello, World');
+console.log(`${myCity}.`);
+'word'.length;          // Get length
+'word'.toUpperCase();   // Convert to uppercase
+' word '.trim();        // Remove whitespace
+Math.random();          // Random number
+Math.floor();           // Round down
+Math.ceil();            // Round up
+Number.isInteger(42);   // Check if integer
+```
+
+---
+
+## Data Types:
+
+- `Number`, `BigInt`, `String`, `Boolean`, `Null`, `Undefined`, `Symbol`, `Objects`
+
+---
+
+## Variables:
+
+- **`var`** – Legacy (function-scoped, scoping issues)
+- **`let`** – Block-scoped, allows reassignment
+- **`const`** – Block-scoped, cannot reassign
+
+Use `typeof` to check a variable’s type:
+
+```js
+typeof variable;
+```
+
+---
+
+## Control Flow:
+
+```js
+if (true) {
+  // Code block
+} else {
+  // Alternative block
+}
+
+switch (value) {
+  case 'case1':
+    break;
+  default:
+    break;
+}
+
+!== // Not equal
+=== // Strict equality
+```
+
+---
+
+## Truthy & Falsy Values:
+
+### Falsy Values:
+
+- `0`, `""`, `null`, `undefined`, `NaN`
+
+---
+
+## Short-Circuiting & Ternary Operator:
+
+```js
+let tool = '';
+let writingUtensil = tool || 'pen';  // Short-circuiting
+isNightTime === true ? 'Yes' : 'No'; // Ternary
+```
+
+---
+
+## Functions:
+
+- **Default Parameters**
+```js
+function greet(name) {
+  console.log(`Hello, ${name}!`);
+}
+```
+- **Anonymous Functions**:
+
+    ```js
+    const plantNeedsWater = (day) => {...};
+    ```
+
+- **Arrow Functions** (Concise syntax):
+
+    ```js
+    const func = num => num > 4 ? true : false;
+    ```
+
+
+---
+
+## Scope:
+
+- **Scope Pollution:** Avoid modifying global variables accidentally.
+
+    ```js
+    var name = "Alice"; // Global scope
+    function setName() {
+      name = "Bob"; // Changes global variable
+    }
+    ```
+
+
+---
+
+## Arrays:
+
+```js
+const arr = ['a', 'b'];
+arr.push('c');    // Add to end
+arr.pop();        // Remove from end
+arr.shift();      // Remove from start
+arr.unshift('x'); // Add to start
+arr.slice(1, 3);  // Extract portion
+arr.indexOf('b'); // Find index
+```
+
+---
+
+## Loops:
+
+```js
+for (let i = 0; i < 4; i++) { console.log(i); }
+
+const cards = ['diamond', 'spade'];
+while (currentCard !== 'spade') {
+  currentCard = cards[Math.floor(Math.random() * 4)];
+}
+
+do {
+  console.log('Message');
+} while (false);
+```
+
+---
+
+## Higher-Order Functions:
+
+- **Pass Functions as Arguments:**
+
+    ```js
+    const addTwo = num => num + 2;
+    const checkOutput = (func, val) => func(val);
+    ```
+
+
+---
+
+## Iterators:
+
+- `.forEach()`, `.map()`, `.filter()`, `.some()`, `.every()`, `.reduce()`
+
+    ```js
+    const nums = [1, 2, 3, 4];
+
+// forEach - Executes a function on each element
+nums.forEach(num => console.log(num)); // Logs each number
+
+// map - Creates a new array with modified elements
+const squares = nums.map(num => num * num); // [1, 4, 9, 16]
+
+// filter - Creates a new array with elements that match the condition
+const evens = nums.filter(num => num % 2 === 0); // [2, 4]
+
+// some - Returns true if any element satisfies the condition
+const hasEven = nums.some(num => num % 2 === 0); // true
+
+// every - Returns true if all elements satisfy the condition
+const allPositive = nums.every(num => num > 0); // true
+
+// reduce - Reduces array to a single value
+const sum = nums.reduce((acc, curr) => acc + curr, 0); // 10
+//`reduce()` processes each element in an array to accumulate a single value. It takes an initial value and combines it with each element using a callback function.
+    ```
+
+# Objects
+
+### Properties
+```js
+let objectname = {
+	objectproperty1: "hi there",
+	"object property 2": 3,
+	objectproperty3: "hello"
+};
+
+let hello = objectname.objectproperty3
+let hello = objectname[object property 2]
+objectname["new property"] = newvalue
+delete objectname[object property 2] //deletes the value and the property
+
+
+//functions for obj
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth'
+};
+
+// Write your code below
+let greenEnergy = (obj1) => {
+  obj1["Fuel Type"] = "avocado oil"//creates the property
+}
+
+let remotelyDisable = (obj1) => {
+  obj1.disabled = true
+}
+
+let{ objectproperty3 } = objectname
+//still works
+```
+
+### Functions
+```js
+const alienShip = {
+  invade () {
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+//older version
+const alienShip = {
+  invade: function () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+//calling
+alienShip.invade()
+```
+
+### Nested Object
+
+```js
+let spaceship = {
+
+  passengers: null,
+  crew: {
+
+    captain: {
+
+      name: 'Sandra',
+
+      degree: 'Computer Engineering',
+
+      encourageTeam() { console.log('We got this!') },
+
+     'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+
+  },
+
+};
+
+spaceship.passengers =  [{name: "Ivanov", age:25}, {name: "Georgiev"}, {name: "Todorov", club: "footboll"} ]
+
+let firstPassenger = spaceship.passengers[0]
+```
+
+### For ... in
+
+```js
+
+let spaceship = {
+
+    crew: {
+
+    captain: {
+        name: 'Lily',
+        degree: 'Computer Engineering',
+        cheerTeam() { console.log('You got this!') }
+        },
+
+    'chief officer': {
+        name: 'Dan',
+        degree: 'Aerospace Engineering',
+        agree() { console.log('I agree, captain!') }
+        },
+
+    medic: {
+        name: 'Clementine',
+        degree: 'Physics',
+        announce() { console.log(`Jets on!`) } },
+
+    translator: {
+        name: 'Shauna',
+        degree: 'Conservation Science',
+        powerFuel() { console.log('The tank is full!') }
+        }
+    }
+};
+
+
+
+// Write your code below
+
+for(let crewMember in spaceship.crew){
+  console.log(`${crewMember}: ${spaceship.crew[crewMember].name}`)
+}
+
+for(let crewMember in spaceship.crew){
+  console.log(`${spaceship.crew[crewMember].name}: ${spaceship.crew[crewMember].degree}`)
+}
+
+/*`for (let crewMember in spaceship.crew) {   console.log(crewMember); // Logs the keys: 'captain', 'chief officer', 'medic', 'translator' }`
+
+- `crewMember` holds the **key name** of each property in `spaceship.crew`.
+- To access the actual object (e.g., the full details of the captain), you need to use `spaceship.crew[crewMember]`.*/
+```
+
+## This
+```js
+dog = {
+	food: "carrot"
+	eat: ()=>{
+		console.log(this.food + "is eaten")}
+	//WONT WORK THIS GOES TO BLOBAL OBJECT THAT HAS NO FOOD PROPERTIES
+	//CORRECT
+	eat (){
+		console.log(this.food)
+		}
+}
+```
+
+## \_propertyName
+use \_ to define that this property should not be changed
+
+## Getter and Setters
+```js
+const robot = {
+  _model: "1E78V2",
+  _energyLevel: 100,
+  _numOfSensors: 15,
+ 
+  get numOfSensors() {
+
+    if (typeof this._numOfSensors === "number") {
+      return this._numOfSensors;
+    } else {
+      return "Sensors are currently down.";
+    }
+  },
+
+  set numOfSensors(num) {
+    if (typeof num === "number" && num >= 0) {
+      this._numOfSensors = num;
+    } else {
+      console.log("Pass in a number that is greater than or equal to 0");
+    }
+  },
+};
+
+
+
+robot.numOfSensors = 100
+
+console.log(robot.numOfSensors)//100
+```
+
+## Factory Design
+```js
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age,
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    }
+  }
+};
+/*
+You can even go:
+	return {
+	    model,
+	    mobile,
+	    beep() {
+	      console.log('Beep Boop');
+	 }*/
+
+```
+
+## Built-in Object Functions
+```js
+const robot = {
+  model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+// What is missing in the following method call?
+const robotKeys = Object.keys(robot);
+console.log(robotKeys);
+// Declare robotEntries below this line:
+const robotEntries = Object.entries(robot)
+console.log(robotEntries);
+// Declare newRobot below this line:
+const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true}, robot)
+console.log(newRobot);
+```
+
