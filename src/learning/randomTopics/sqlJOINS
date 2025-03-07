@@ -1,0 +1,43 @@
+```sql
+-- INNER JOIN: Returns only matching rows from both tables
+SELECT * FROM table1
+INNER JOIN table2 ON table1.common_column = table2.common_column;
+
+-- LEFT JOIN (LEFT OUTER JOIN): Returns all rows from the left table + matching rows from the right table
+SELECT * FROM table1
+LEFT JOIN table2 ON table1.common_column = table2.common_column;
+
+-- RIGHT JOIN (RIGHT OUTER JOIN): Returns all rows from the right table + matching rows from the left table
+SELECT * FROM table1
+RIGHT JOIN table2 ON table1.common_column = table2.common_column;
+
+-- FULL JOIN (FULL OUTER JOIN): Returns all rows from both tables, matching where possible
+SELECT * FROM table1
+FULL JOIN table2 ON table1.common_column = table2.common_column;
+
+-- CROSS JOIN: Returns the Cartesian product (every combination of rows)
+SELECT * FROM table1
+CROSS JOIN table2;
+
+-- SELF JOIN: Joins a table with itself (requires aliasing)
+SELECT a.*, b.* FROM table1 a
+INNER JOIN table1 b ON a.common_column = b.common_column;
+
+-- NATURAL JOIN: Automatically joins based on common column names
+SELECT * FROM table1
+NATURAL JOIN table2;
+
+-- USING clause: Alternative to ON when column names are the same
+SELECT * FROM table1
+INNER JOIN table2 USING (common_column);
+
+-- LEFT JOIN with COALESCE to replace NULL values
+SELECT table1.*, COALESCE(table2.column, 'Default Value')
+FROM table1
+LEFT JOIN table2 ON table1.common_column = table2.common_column;
+
+-- Filtering JOIN results with WHERE clause
+SELECT * FROM table1
+INNER JOIN table2 ON table1.common_column = table2.common_column
+WHERE table2.some_column = 'some_value';
+```

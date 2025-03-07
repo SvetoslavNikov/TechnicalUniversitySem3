@@ -1,0 +1,25 @@
+```sql
+-- Check the current schema
+SELECT current_schema;
+
+-- Show the search path (which schemas are being used)
+SHOW search_path;
+
+-- Change the current schema
+SET search_path TO schema_name;
+
+-- Create a new schema
+CREATE SCHEMA schema_name;
+
+-- Drop a schema and all its objects
+DROP SCHEMA schema_name CASCADE;
+
+-- List all schemas in the database
+SELECT schema_name FROM information_schema.schemata;
+
+-- Grant access to a schema for a specific user
+GRANT USAGE ON SCHEMA schema_name TO user_name;
+
+-- Revoke access from a schema for a specific user
+REVOKE USAGE ON SCHEMA schema_name FROM user_name;
+```
