@@ -4,13 +4,12 @@ public class Singleton {
     private static volatile Singleton instance;
 
     private Singleton() {
-        // Private constructor prevents instantiation
     }
 
     public static Singleton getInstance() {
-        if (instance == null) { // First check (no locking)
+        if (instance == null) {
             synchronized (Singleton.class) {
-                if (instance == null) { // Second check (with locking)
+                if (instance == null) {
                     instance = new Singleton();
                 }
             }
