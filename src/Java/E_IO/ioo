@@ -1,0 +1,12 @@
+Without Buffering: Each byte is read from the file separately, causing more I/O operations and higher latency.
+With Buffering: Data is read in chunks into memory, minimizing the I/O operations and improving performance.
+
+Blocking I/O: The application waits (blocks) until the I/O operation (e.g., reading from a file) is complete before continuing.
+Non-blocking I/O: The application initiates an I/O operation but doesn’t wait;
+it can continue executing other tasks while the I/O operation completes in the background.
+
+Serialization is the process of converting an object into a byte stream so that it can be easily stored in a file,
+sent over a network, or saved to a database.
+Deserialization is the reverse process, where the byte stream is converted back into the original object.
+
+Serialization is the process of converting an object into a byte stream so that it can be saved or transmitted.
