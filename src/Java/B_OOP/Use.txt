@@ -1,0 +1,9 @@
+Normal class: Use when you need to create concrete objects with shared behavior and avoid inheritance limitations.
+Abstract class: Use when you want to provide shared implementation while allowing subclasses to implement or override specific behaviors.
+Interface: Use when you need to define a contract that can be implemented by multiple classes, with the option of providing default behavior.
+
+
+Normal class: E-commerce system – Use a normal class for a Product that has specific behavior like calculating price and applying discounts.
+Abstract class: Shipping system – Use an abstract class for a DeliveryMethod where you define shared methods (e.g., calculateCost()) but leave specific methods (e.g., applyDiscount())
+to be implemented by subclasses like ExpressDelivery or StandardDelivery.
+Interface: Payment system – Use an interface for PaymentMethod with default methods for processPayment() to allow different payment types (e.g., CreditCard, PayPal) to implement the contract but provide their own specific payment logic.

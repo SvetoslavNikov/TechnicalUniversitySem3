@@ -1,18 +1,18 @@
-Here's a comprehensive list of topics you should be familiar with for a junior Java interview:
+Here's a comprehensive list of topics you should be familiar with for a junior JavaRevise interview:
 
-1. Core Java Fundamentals
+1. Core JavaRevise Fundamentals
 - Object-Oriented Programming (OOP) concepts
   - Classes and Objects
   - Inheritance
   - Encapsulation
   - Polymorphism
   - Abstraction
-- Java syntax and basic programming constructs
+- JavaRevise syntax and basic programming constructs
 - Data types and variables
 - Operators
 - Control flow statements (if-else, switch, loops)
 
-2. Java Collections Framework
+2. JavaRevise Collections Framework
 - ArrayList
 - LinkedList
 - HashMap
@@ -36,12 +36,12 @@ Here's a comprehensive list of topics you should be familiar with for a junior J
 - Enum types
 - Composition vs Inheritance
 
-5. Java Memory Management
+5. JavaRevise Memory Management
 - Stack vs Heap memory
 - Garbage Collection basics
 - Reference types (Strong, Weak, Soft)
 
-6. Fundamental Java Classes
+6. Fundamental JavaRevise Classes
 - String and StringBuilder
 - Math class
 - Date and Time API (java.time package)
@@ -59,7 +59,7 @@ Here's a comprehensive list of topics you should be familiar with for a junior J
 - Basic stream operations
 - Try-with-resources
 
-9. Java 8+ Features
+9. JavaRevise 8+ Features
 - Lambda expressions
 - Stream API
 - Optional class

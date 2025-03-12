@@ -1,8 +1,8 @@
 Let me break it down for you!
 
 ### 1. **JAR File**
-A **JAR** (Java Archive) file is a package that contains your entire compiled
-Java application (all classes, resources, and dependencies). Think of it like a zip file for your Java code.
+A **JAR** (JavaRevise Archive) file is a package that contains your entire compiled
+JavaRevise application (all classes, resources, and dependencies). Think of it like a zip file for your JavaRevise code.
 
 In a **Spring Boot** app, `mvn package` or `gradle build` will typically 
 create a JAR in the `target` directory (for Maven users). This JAR includes
@@ -11,7 +11,7 @@ everything needed to run the app, including:
 - Dependencies
 - Spring Boot’s built-in server
 
-When you run `java -jar app.jar`, Java knows how to load and run the application inside the JAR.
+When you run `java -jar app.jar`, JavaRevise knows how to load and run the application inside the JAR.
 
 ---
 

@@ -1,23 +1,23 @@
 What is Hibernate?
-Hibernate is an open-source Object-Relational Mapping (ORM) framework for Java. 
-It simplifies the interaction between Java applications and relational databases by mapping Java objects to database tables.
- Hibernate abstracts the complexities of JDBC (Java Database Connectivity) and eliminates the need for most SQL, allowing developers to work with 
- Java objects instead of directly dealing with database queries.
+Hibernate is an open-source Object-Relational Mapping (ORM) framework for JavaRevise.
+It simplifies the interaction between JavaRevise applications and relational databases by mapping JavaRevise objects to database tables.
+ Hibernate abstracts the complexities of JDBC (JavaRevise Database Connectivity) and eliminates the need for most SQL, allowing developers to work with
+ JavaRevise objects instead of directly dealing with database queries.
 
-Basic Use in Java
+Basic Use in JavaRevise
 Hibernate is used to:
 
-Persist Java objects into a relational database (store data).
-Fetch data from the database and populate Java objects.
+Persist JavaRevise objects into a relational database (store data).
+Fetch data from the database and populate JavaRevise objects.
 Perform CRUD operations (Create, Read, Update, Delete) using object-oriented code.
 Handle complex relationships like one-to-many, many-to-one, and many-to-many between database tables.
 Key Features:
-Automatic ORM Mapping: Converts Java classes into database tables and vice versa.
+Automatic ORM Mapping: Converts JavaRevise classes into database tables and vice versa.
 HQL (Hibernate Query Language): Provides an object-oriented query language.
 Lazy Loading: Fetches related data only when needed.
 Transaction Management: Simplifies transaction handling.
 Database Independence: Works with multiple databases without changing code.
-Basic Example in Java
+Basic Example in JavaRevise
 1. Hibernate Configuration: Create a hibernate.cfg.xml file for database connection settings:
 
 xml
@@ -30,7 +30,7 @@ xml
         <property name="hibernate.hbm2ddl.auto">update</property>
     </session-factory>
 </hibernate-configuration>
-2. Java Entity Class: Map a Java class to a database table using annotations.
+2. JavaRevise Entity Class: Map a JavaRevise class to a database table using annotations.
 
 java
 

@@ -1,5 +1,5 @@
 ### What is Maven?
-Maven is a build automation and project management tool for Java smallProjects. It simplifies dependency management, project configuration, and builds processes using a standardized project structure and an XML configuration file (`pom.xml`).
+Maven is a build automation and project management tool for JavaRevise smallProjects. It simplifies dependency management, project configuration, and builds processes using a standardized project structure and an XML configuration file (`pom.xml`).
 
 ---
 
@@ -36,7 +36,7 @@ Maven is a build automation and project management tool for Java smallProjects. 
    - This compiles, tests, and packages the project into a JAR/WAR file.
 
 5. **Run the Project**:
-   - If it’s a Java project, execute:
+   - If it’s a JavaRevise project, execute:
      ```bash
      java -jar target/your-app.jar
      ```
