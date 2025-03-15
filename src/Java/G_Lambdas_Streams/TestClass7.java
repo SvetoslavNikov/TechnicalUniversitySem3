@@ -50,10 +50,12 @@ public class TestClass7 {
 
         int reduced = ls.stream()
                 .reduce(0, (a,b)-> a+b);
+        //The first argument to reduce() is the identity value (initial value).
+        //The second argument is the binary operator that accumulates the values.
 
         System.out.println(filtered);
         System.out.println(mapped);
-        System.out.println(reduced);
+        System.out.println("REDUCED: " + reduced);
 
 
 
