@@ -7,3 +7,7 @@ Normal class: E-commerce system – Use a normal class for a Product that has sp
 Abstract class: Shipping system – Use an abstract class for a DeliveryMethod where you define shared methods (e.g., calculateCost()) but leave specific methods (e.g., applyDiscount())
 to be implemented by subclasses like ExpressDelivery or StandardDelivery.
 Interface: Payment system – Use an interface for PaymentMethod with default methods for processPayment() to allow different payment types (e.g., CreditCard, PayPal) to implement the contract but provide their own specific payment logic.
+
+
+Runtime polymorphism = When the method that gets executed is decided
+   at runtime based on the actual type of the object.
