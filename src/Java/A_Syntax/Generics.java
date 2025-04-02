@@ -8,6 +8,7 @@ public class Generics {
         Item<String, Double> paperclip = new Item<>("paperclip", 0.3);
         Item<String, Long> myNetworth = new Item<>("networth", 1223456789L);
 
+
         // Create a box that can hold Item<String, Integer>
         Box<Item<String, ?>> box = new Box<>();
         box.putItemIn(pen);
@@ -17,6 +18,11 @@ public class Generics {
         while(box.itemsLeft()!= 0) {
             System.out.println("Item taken out: " + box.takeItemOut().getItem());
         }
+    }
+
+    public static Box<String> createBox(){
+        return new Box();
+        //this will take the type from above;
     }
 }
 
