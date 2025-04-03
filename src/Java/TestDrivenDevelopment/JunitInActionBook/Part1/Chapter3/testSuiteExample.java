@@ -5,7 +5,8 @@ import org.junit.runners.Suite;
 
 //suit
 
-@RunWith(Suite.class)//Detected by Junit, so it runs this class as a Suite
+@RunWith(Suite.class)
+//Detected by Junit, so it runs this class as a Suite
 
 @Suite.SuiteClasses({TestStringUtils.class, TestMathUtils.class})
 //Specify the test classes
