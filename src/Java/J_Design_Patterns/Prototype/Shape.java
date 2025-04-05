@@ -74,6 +74,6 @@ class PrototypeDemo {
         // Clone the prototype to create a new instance
         Circle clonedCircle = (Circle) circlePrototype.clone();
         clonedCircle.setRadius(10);
-        System.out.println(clonedCircle.getInfo()); 
+        System.out.println(clonedCircle.getInfo());
     }
 }
