@@ -1,7 +1,10 @@
 package Java.J_Design_Patterns.Facade;
 
 
-//HomeGamingFacade
+//facade pattern provides a simple interface to a complex set of classes or subsystems.
+
+//basically wrapping several method calls and object interactions into one simple method of the facade class,
+// so the user doesn’t have to deal with the complexity behind the scenes
 public class FacadeDemo{
     public static void main(String[] args) {
         GamingFacade gamingFacade = new GamingFacade();
