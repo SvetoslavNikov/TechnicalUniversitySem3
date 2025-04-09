@@ -1,7 +1,8 @@
 package Java.J_Design_Patterns.Prototype;
 
-//USE THE PROTOTYPE PATTERN WHEN YOUR CODE SHOULD NOT DEPEND ON CONCRETE CLASSES
-//OF OBJECTS THAT YOU NEED TO COY OR DUPLICATE
+// use the prototype pattern when your code should not depend on concrete classes
+// of objects that you need to copy or duplicate
+
 public abstract class Vehicle{
     private String brand;
     private String model;
