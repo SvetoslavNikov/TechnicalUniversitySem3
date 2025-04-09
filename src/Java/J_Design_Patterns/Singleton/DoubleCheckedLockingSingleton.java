@@ -1,7 +1,7 @@
 package Java.J_Design_Patterns.Singleton;
 
-//Problem: can still break it with reflection and create new instances unless extra safeguards are added.
-//Serialization break -> fixed buy adding readResolve() implementation
+//problem: can still break it with reflection and create new instances unless extra safeguards are added.
+//serialization break -> fixed by adding readResolve() implementation
 
 import java.io.*;
 
@@ -43,26 +43,3 @@ public class DoubleCheckedLockingSingleton implements Serializable {
 
 }
 
-class SingletonSerializationTest {
-    public static void main(String[] args) throws Exception {
-        DoubleCheckedLockingSingleton instance1 = DoubleCheckedLockingSingleton.getInstance();
-        ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream("src/Java/J_Design_Patterns/Singleton/serializedSingleton.obj"));
-        out.writeObject(instance1);
-        out.flush();
-        out.close();
-
-        ObjectInputStream input = new ObjectInputStream(
-                new FileInputStream("src/Java/J_Design_Patterns/Singleton/serializedSingleton.obj"));
-        DoubleCheckedLockingSingleton instance2 = (DoubleCheckedLockingSingleton) input.readObject();
-        input.close();
-
-        if (instance1 != instance2) {
-            System.out.println("Singleton Broken Congrats");
-        } else {
-            System.out.println("not broken");
-        }
-
-
-    }
-}
