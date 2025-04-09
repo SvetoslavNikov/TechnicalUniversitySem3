@@ -27,9 +27,9 @@ class TestEnumSingleton{
 
         //can't use NEW with enums because:
         //
-        //singleton-like behavior: Enums ensure only one instance of each constant
+        //singleton-like behavior: enums ensure only one instance of each constant
         //
-        //private constructor: The enum's constructor is automatically private
-        //preventing direct instantiation
+        //private constructor: the enum's constructor is automatically private
+        //can't create instance directly
     }
 }
