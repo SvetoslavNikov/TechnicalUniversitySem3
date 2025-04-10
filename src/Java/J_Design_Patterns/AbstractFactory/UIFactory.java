@@ -46,7 +46,7 @@ class WindowsButton implements Button {
 class WindowsTextField implements TextField {
     @Override
     public void show() {
-        System.out.println("Displaying a windows text field");
+        System.out.println("Displaying a Windows text field");
     }
 }
 
@@ -60,7 +60,7 @@ class MacButton implements Button {
 class MacTextField implements TextField {
     @Override
     public void show() {
-        System.out.println("Displaying the round corners TextField");
+        System.out.println("Displaying a Mac TextField");
     }
 }
 
