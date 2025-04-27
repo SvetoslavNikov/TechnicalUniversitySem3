@@ -7,6 +7,10 @@ import java.util.Stack;
 
 class Solution {
     public static void main(String[] args) {
+
+        int a  = 5;
+        int b = 5/2;
+        System.out.println(b);
         String s = "are be";
         if(s.charAt(2) == s.charAt(5)){
             System.out.println("are be eto fgo");
@@ -43,9 +47,25 @@ class Solution {
     }
 
     public static int BinarySearch(int[] nums, int target) {
-        
 
+        int l = 0;
+        int r = nums.length/2;
 
+        while(l < r){
+            if(target > nums[r]){
+                l = r;
+                r = r*2;
+            }
+            if(target < nums[r]){
+                r = r/2;
+            }
+
+            if(target == nums[r]){
+                return r;
+            }
+        }
+
+        return -1;
     }
 
 
