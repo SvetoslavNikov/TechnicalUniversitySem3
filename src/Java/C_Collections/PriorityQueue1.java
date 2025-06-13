@@ -1,6 +1,6 @@
 package Java.C_Collections;
 
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class PriorityQueue1 {
     public static void main(String[] args) {
@@ -8,39 +8,42 @@ public class PriorityQueue1 {
         //By default, a PriorityQueue in Java is a Min-Heap,
         //meaning the smallest element is removed first.
 
-        PriorityQueue<Integer> pq1 = new PriorityQueue<>((a,b) -> a - b);
-        pq1.add(30);
-        pq1.offer(20);
-        pq1.add(40);
-        pq1.offer(10);
+        // Create a min-heap PriorityQueue
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
 
-        //without comparator
-        //[30]
-        //[20, 30]
-        //[20, 30, 40]
-        //[10, 20, 40, 30]
-
-        System.out.println(pq1.poll());
-        System.out.println(pq1.poll());
-        System.out.println(pq1.poll());
-        System.out.println(pq1.poll());
-
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)-> b-a);
-        pq.add(30);
-        pq.offer(20);
-        pq.add(40);
+        // Add elements (add or offer) SAME
         pq.offer(10);
+        pq.add(5);
 
-        //without comparator
-        //[30]
-        //[20, 30]
-        //[20, 30, 40]
-        //[10, 20, 40, 30]
+        // Poll (remove & return smallest)
+        int smallest = pq.poll(); // null if empty
 
-        System.out.println(pq.poll());
-        System.out.println(pq.poll());
-        System.out.println(pq.poll());
-        System.out.println(pq.poll());
+        // Max-heap example
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+
+        // Heapify an unsorted array efficiently (O(n)):
+        int[] arr = {4, 1, 7, 3, 8};
+        List<Integer> list = new ArrayList<>();
+        for (int num : arr) {
+            list.add(num);
+        }
+
+        PriorityQueue<Integer> minheap = new PriorityQueue<>(list);
+        PriorityQueue<Integer> maxheap = new PriorityQueue<>(Collections.reverseOrder());
+        maxheap.addAll(list);
+        //O(n)
+
+        int i = 0;
+        while(!minheap.isEmpty()){
+            arr[i++] = minheap.poll();
+        }
+        //polling all elements - O(nlogn)
+
+        i = 0;
+        while(!maxheap.isEmpty()){
+            arr[i++] = maxheap.poll();
+        }
+
     }
+
 }
