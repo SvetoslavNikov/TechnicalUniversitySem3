@@ -4,6 +4,9 @@ import java.util.HashSet;
 import java.util.*;
 
 public class Concept {
+    public Concept() {
+    }
+
     public static void main(String[] args){
         System.out.println(LongestNonRepeatableString("aebcdef"));
 
