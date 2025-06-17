@@ -5,13 +5,11 @@ public class Test {
         Child c = new Child(50);
         System.out.println(c.getAge());
 
-
     }
-
 }
 
 class Parent{
-    private int age;
+    public int age;
 
     Parent(int age){
         this.age = age;
@@ -29,6 +27,8 @@ class Parent{
 
 class Child extends Parent{
 
+    public int age;
+
     Child(int age) {
         super(age);
     }
@@ -36,6 +36,7 @@ class Child extends Parent{
     @Override
     int getAge(){
         System.out.println("Child get age called wtf");
-        return super.getAge();
+        return super.age;
+//        return age;
     }
 }
